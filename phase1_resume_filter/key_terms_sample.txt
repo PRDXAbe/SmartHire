@@ -1,0 +1,21 @@
+Python
+Machine Learning
+Natural Language Processing
+TensorFlow
+PyTorch
+Deep Learning
+Computer Vision
+Data Science
+SQL
+MongoDB
+AWS
+Docker
+Kubernetes
+Git
+Scikit-learn
+Pandas
+NumPy
+Neural Networks
+NLP
+AI
+Artificial Intelligence

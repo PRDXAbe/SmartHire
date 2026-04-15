@@ -1,0 +1,8 @@
+Python
+Machine Learning
+Data Science
+TensorFlow
+AWS
+SQL
+Docker
+Git

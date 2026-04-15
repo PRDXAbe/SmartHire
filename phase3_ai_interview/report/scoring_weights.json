@@ -1,0 +1,9 @@
+{
+  "communication_weight": 0.25,
+  "emotion_weight": 0.15,
+  "confidence_weight": 0.20,
+  "relevance_weight": 0.25,
+  "eye_contact_weight": 0.15,
+  "passing_threshold": 60,
+  "excellent_threshold": 80
+}
