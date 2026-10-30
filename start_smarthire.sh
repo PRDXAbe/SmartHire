@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Start SmartHire Local on macOS, Linux, Git Bash, or WSL.
+# Start SmartHire on macOS, Linux, Git Bash, or WSL.
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -16,5 +16,5 @@ if ! "$PYTHON_CMD" -c "import flask, PyPDF2, reportlab" >/dev/null 2>&1; then
   exit 1
 fi
 
-echo "Starting SmartHire Local at http://127.0.0.1:5000"
+echo "Starting SmartHire at http://127.0.0.1:5000"
 exec "$PYTHON_CMD" main.py

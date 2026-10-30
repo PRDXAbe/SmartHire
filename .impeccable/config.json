@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "app/unified/index.html"
+        ],
+        "createdAt": "2026-10-30T14:36:48.048Z",
+        "reason": "agent triage: flagged containers are the flush table card (cells carry 12px padding), the edge-to-edge camera frame, and fieldsets whose floated legends sit inside 24px top padding"
+      }
+    ]
+  }
+}

@@ -1,4 +1,4 @@
-# SmartHire Local setup
+# SmartHire setup
 
 SmartHire runs on one machine at `http://127.0.0.1:5000`. It does not require a cloud service, API key, database server, or deployment.
 

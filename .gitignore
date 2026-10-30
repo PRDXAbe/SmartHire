@@ -22,3 +22,7 @@ archive/
 .idea/
 .DS_Store
 Thumbs.db
+
+# impeccable: platform binary (reinstall with npx impeccable install) and personal hook settings
+.claude/skills/impeccable/scripts/bin/
+.claude/settings.local.json

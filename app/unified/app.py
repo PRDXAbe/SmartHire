@@ -303,6 +303,11 @@ def index():
     return send_from_directory(HERE, "index.html")
 
 
+@app.get("/static/<path:filename>")
+def static_file(filename):
+    return send_from_directory(HERE / "static", filename)
+
+
 @app.get("/api/state")
 def state():
     jobs = all_items("jobs")

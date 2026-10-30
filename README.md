@@ -1,4 +1,4 @@
-# SmartHire Local
+# SmartHire
 
 One offline browser workspace for role setup, resume screening, aptitude and coding tests, a structured interview, face comparison, and recruiter reports. The active app binds to `127.0.0.1` and makes no paid API calls.
 
@@ -18,7 +18,7 @@ The local question banks, face models, and Whisper model are bundled in `app/`; 
 
 1. Pick a predefined role template or enter a role. Set Phase 1 weights and choose **Beginner**, **Intermediate**, or **Advanced** for aptitude, coding, and interview. Advanced coding uses a weighted shortest-path problem.
 2. Add a candidate using a PDF or text. The three [fictitious example resumes](examples/resumes) can fill the form and are also downloadable as PDFs.
-3. Review the weighted resume match, complete the tests, and answer interview questions by typing or locally transcribed speech. The interviewer has motion graphics and can attempt spoken questions through a local Windows voice. Interview answers receive no automatic quality percentage; a recruiter rates each answer on a 0–4 rubric in the dashboard.
+3. Review the weighted resume match, complete the tests, and answer interview questions by typing or locally transcribed speech. Each stage opens from its own tab on the candidate record, and the interviewer can play questions aloud through a local Windows voice. Interview answers receive no automatic quality percentage; a recruiter rates each answer on a 0–4 rubric in the dashboard.
 4. With candidate consent, add a reference photo and start the camera. The app draws a face box and displays an **uncalibrated cosine similarity score**. A three-frame capture returns **match**, **no match**, or **inconclusive** automatically. The camera check is separate from the hiring score.
 5. In the dashboard, choose **View analysis** for a candidate. This opens an inline four-phase score breakdown, the points each phase contributed to the overall score, a five-point evidence summary, and expandable resume and interview details. Download the PDF report there if needed.
 

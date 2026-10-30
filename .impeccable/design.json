@@ -1,0 +1,765 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-30T14:49:51+00:00",
+  "title": "Design System: SmartHire",
+  "extensions": {
+    "colorMeta": {
+      "rail": {
+        "role": "primary",
+        "displayName": "Fountain-Pen Ink",
+        "canonical": "#15223f",
+        "oklch": "oklch(25.7% 0.058 264)",
+        "cssVar": "--rail",
+        "tonalRamp": [
+          "oklch(15% 0.028 264)",
+          "oklch(26% 0.037 264)",
+          "oklch(38% 0.045 264)",
+          "oklch(49% 0.054 264)",
+          "oklch(61% 0.054 264)",
+          "oklch(72% 0.045 264)",
+          "oklch(84% 0.037 264)",
+          "oklch(95% 0.028 264)"
+        ]
+      },
+      "rail-raised": {
+        "role": "primary",
+        "displayName": "Raised Rail Ink",
+        "canonical": "#1d2d52",
+        "oklch": "oklch(30.4% 0.070 265)",
+        "cssVar": "--rail-2",
+        "tonalRamp": [
+          "oklch(15% 0.035 265)",
+          "oklch(26% 0.045 265)",
+          "oklch(38% 0.055 265)",
+          "oklch(49% 0.065 265)",
+          "oklch(61% 0.065 265)",
+          "oklch(72% 0.055 265)",
+          "oklch(84% 0.045 265)",
+          "oklch(95% 0.035 265)"
+        ]
+      },
+      "rail-text": {
+        "role": "neutral",
+        "displayName": "Rail Text",
+        "canonical": "#e8ecf4",
+        "oklch": "oklch(94.2% 0.012 265)",
+        "cssVar": "--rail-text",
+        "tonalRamp": [
+          "oklch(15% 0.006 265)",
+          "oklch(26% 0.007 265)",
+          "oklch(38% 0.009 265)",
+          "oklch(49% 0.011 265)",
+          "oklch(61% 0.011 265)",
+          "oklch(72% 0.009 265)",
+          "oklch(84% 0.007 265)",
+          "oklch(95% 0.006 265)"
+        ]
+      },
+      "rail-muted": {
+        "role": "neutral",
+        "displayName": "Rail Muted",
+        "canonical": "#a3afc8",
+        "oklch": "oklch(75.3% 0.038 265)",
+        "cssVar": "--rail-muted",
+        "tonalRamp": [
+          "oklch(15% 0.019 265)",
+          "oklch(26% 0.024 265)",
+          "oklch(38% 0.030 265)",
+          "oklch(49% 0.036 265)",
+          "oklch(61% 0.036 265)",
+          "oklch(72% 0.030 265)",
+          "oklch(84% 0.024 265)",
+          "oklch(95% 0.019 265)"
+        ]
+      },
+      "ground": {
+        "role": "neutral",
+        "displayName": "Drawer Grey",
+        "canonical": "#e8ebf0",
+        "oklch": "oklch(93.9% 0.007 261)",
+        "cssVar": "--ground",
+        "tonalRamp": [
+          "oklch(15% 0.004 261)",
+          "oklch(26% 0.005 261)",
+          "oklch(38% 0.006 261)",
+          "oklch(49% 0.007 261)",
+          "oklch(61% 0.007 261)",
+          "oklch(72% 0.006 261)",
+          "oklch(84% 0.005 261)",
+          "oklch(95% 0.004 261)"
+        ]
+      },
+      "ground-deep": {
+        "role": "neutral",
+        "displayName": "Deep Drawer",
+        "canonical": "#dde1e8",
+        "oklch": "oklch(90.9% 0.010 262)",
+        "cssVar": "--ground-2",
+        "tonalRamp": [
+          "oklch(15% 0.005 262)",
+          "oklch(26% 0.007 262)",
+          "oklch(38% 0.008 262)",
+          "oklch(49% 0.010 262)",
+          "oklch(61% 0.010 262)",
+          "oklch(72% 0.008 262)",
+          "oklch(84% 0.007 262)",
+          "oklch(95% 0.005 262)"
+        ]
+      },
+      "card": {
+        "role": "neutral",
+        "displayName": "Card Stock",
+        "canonical": "#ffffff",
+        "oklch": "oklch(100.0% 0.000 90)",
+        "cssVar": "--card",
+        "tonalRamp": [
+          "oklch(15% 0.000 90)",
+          "oklch(26% 0.000 90)",
+          "oklch(38% 0.000 90)",
+          "oklch(49% 0.000 90)",
+          "oklch(61% 0.000 90)",
+          "oklch(72% 0.000 90)",
+          "oklch(84% 0.000 90)",
+          "oklch(95% 0.000 90)"
+        ]
+      },
+      "card-tint": {
+        "role": "neutral",
+        "displayName": "Card Tint",
+        "canonical": "#f6f7f9",
+        "oklch": "oklch(97.6% 0.003 265)",
+        "cssVar": "--card-2",
+        "tonalRamp": [
+          "oklch(15% 0.001 265)",
+          "oklch(26% 0.002 265)",
+          "oklch(38% 0.002 265)",
+          "oklch(49% 0.003 265)",
+          "oklch(61% 0.003 265)",
+          "oklch(72% 0.002 265)",
+          "oklch(84% 0.002 265)",
+          "oklch(95% 0.001 265)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "#d4d9e2",
+        "oklch": "oklch(88.4% 0.013 262)",
+        "cssVar": "--line",
+        "tonalRamp": [
+          "oklch(15% 0.007 262)",
+          "oklch(26% 0.009 262)",
+          "oklch(38% 0.011 262)",
+          "oklch(49% 0.013 262)",
+          "oklch(61% 0.013 262)",
+          "oklch(72% 0.011 262)",
+          "oklch(84% 0.009 262)",
+          "oklch(95% 0.007 262)"
+        ]
+      },
+      "line-strong": {
+        "role": "neutral",
+        "displayName": "Strong Hairline",
+        "canonical": "#b9c0cd",
+        "oklch": "oklch(80.6% 0.020 263)",
+        "cssVar": "--line-strong",
+        "tonalRamp": [
+          "oklch(15% 0.010 263)",
+          "oklch(26% 0.013 263)",
+          "oklch(38% 0.016 263)",
+          "oklch(49% 0.018 263)",
+          "oklch(61% 0.018 263)",
+          "oklch(72% 0.016 263)",
+          "oklch(84% 0.013 263)",
+          "oklch(95% 0.010 263)"
+        ]
+      },
+      "red-rule": {
+        "role": "primary",
+        "displayName": "Index-Card Red Rule",
+        "canonical": "#cf3a2f",
+        "oklch": "oklch(57.1% 0.188 29)",
+        "cssVar": "--rule",
+        "tonalRamp": [
+          "oklch(15% 0.092 29)",
+          "oklch(26% 0.119 29)",
+          "oklch(38% 0.147 29)",
+          "oklch(49% 0.174 29)",
+          "oklch(61% 0.174 29)",
+          "oklch(72% 0.147 29)",
+          "oklch(84% 0.119 29)",
+          "oklch(95% 0.092 29)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#17203a",
+        "oklch": "oklch(25.0% 0.051 268)",
+        "cssVar": "--ink",
+        "tonalRamp": [
+          "oklch(15% 0.025 268)",
+          "oklch(26% 0.033 268)",
+          "oklch(38% 0.040 268)",
+          "oklch(49% 0.047 268)",
+          "oklch(61% 0.047 268)",
+          "oklch(72% 0.040 268)",
+          "oklch(84% 0.033 268)",
+          "oklch(95% 0.025 268)"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Soft Ink",
+        "canonical": "#3a4560",
+        "oklch": "oklch(39.3% 0.048 267)",
+        "cssVar": "--ink-2",
+        "tonalRamp": [
+          "oklch(15% 0.024 267)",
+          "oklch(26% 0.031 267)",
+          "oklch(38% 0.038 267)",
+          "oklch(49% 0.045 267)",
+          "oklch(61% 0.045 267)",
+          "oklch(72% 0.038 267)",
+          "oklch(84% 0.031 267)",
+          "oklch(95% 0.024 267)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted Ink",
+        "canonical": "#5b6579",
+        "oklch": "oklch(50.6% 0.034 264)",
+        "cssVar": "--muted",
+        "tonalRamp": [
+          "oklch(15% 0.017 264)",
+          "oklch(26% 0.022 264)",
+          "oklch(38% 0.027 264)",
+          "oklch(49% 0.032 264)",
+          "oklch(61% 0.032 264)",
+          "oklch(72% 0.027 264)",
+          "oklch(84% 0.022 264)",
+          "oklch(95% 0.017 264)"
+        ]
+      },
+      "resume": {
+        "role": "secondary",
+        "displayName": "Resume Blue",
+        "canonical": "#2f63c4",
+        "oklch": "oklch(51.9% 0.162 261)",
+        "cssVar": "--resume",
+        "tonalRamp": [
+          "oklch(15% 0.079 261)",
+          "oklch(26% 0.103 261)",
+          "oklch(38% 0.127 261)",
+          "oklch(49% 0.150 261)",
+          "oklch(61% 0.150 261)",
+          "oklch(72% 0.127 261)",
+          "oklch(84% 0.103 261)",
+          "oklch(95% 0.079 261)"
+        ]
+      },
+      "identity": {
+        "role": "secondary",
+        "displayName": "Identity Slate",
+        "canonical": "#6a7387",
+        "oklch": "oklch(55.5% 0.033 266)",
+        "cssVar": "--identity",
+        "tonalRamp": [
+          "oklch(15% 0.016 266)",
+          "oklch(26% 0.021 266)",
+          "oklch(38% 0.026 266)",
+          "oklch(49% 0.031 266)",
+          "oklch(61% 0.031 266)",
+          "oklch(72% 0.026 266)",
+          "oklch(84% 0.021 266)",
+          "oklch(95% 0.016 266)"
+        ]
+      },
+      "aptitude": {
+        "role": "secondary",
+        "displayName": "Aptitude Canary",
+        "canonical": "#c99a0c",
+        "oklch": "oklch(71.1% 0.143 86)",
+        "cssVar": "--aptitude",
+        "tonalRamp": [
+          "oklch(15% 0.070 86)",
+          "oklch(26% 0.091 86)",
+          "oklch(38% 0.112 86)",
+          "oklch(49% 0.133 86)",
+          "oklch(61% 0.133 86)",
+          "oklch(72% 0.112 86)",
+          "oklch(84% 0.091 86)",
+          "oklch(95% 0.070 86)"
+        ]
+      },
+      "coding": {
+        "role": "secondary",
+        "displayName": "Coding Green",
+        "canonical": "#23845a",
+        "oklch": "oklch(54.7% 0.110 160)",
+        "cssVar": "--coding",
+        "tonalRamp": [
+          "oklch(15% 0.054 160)",
+          "oklch(26% 0.070 160)",
+          "oklch(38% 0.086 160)",
+          "oklch(49% 0.102 160)",
+          "oklch(61% 0.102 160)",
+          "oklch(72% 0.086 160)",
+          "oklch(84% 0.070 160)",
+          "oklch(95% 0.054 160)"
+        ]
+      },
+      "interview": {
+        "role": "secondary",
+        "displayName": "Interview Cherry",
+        "canonical": "#c3325d",
+        "oklch": "oklch(55.1% 0.182 8)",
+        "cssVar": "--interview",
+        "tonalRamp": [
+          "oklch(15% 0.089 8)",
+          "oklch(26% 0.116 8)",
+          "oklch(38% 0.142 8)",
+          "oklch(49% 0.169 8)",
+          "oklch(61% 0.169 8)",
+          "oklch(72% 0.142 8)",
+          "oklch(84% 0.116 8)",
+          "oklch(95% 0.089 8)"
+        ]
+      },
+      "ok": {
+        "role": "tertiary",
+        "displayName": "Ledger Green",
+        "canonical": "#1d7a4f",
+        "oklch": "oklch(51.5% 0.109 158)",
+        "cssVar": "--ok",
+        "tonalRamp": [
+          "oklch(15% 0.053 158)",
+          "oklch(26% 0.069 158)",
+          "oklch(38% 0.085 158)",
+          "oklch(49% 0.101 158)",
+          "oklch(61% 0.101 158)",
+          "oklch(72% 0.085 158)",
+          "oklch(84% 0.069 158)",
+          "oklch(95% 0.053 158)"
+        ]
+      },
+      "ok-bg": {
+        "role": "tertiary",
+        "displayName": "Ledger Green Field",
+        "canonical": "#e6f3ec",
+        "oklch": "oklch(95.2% 0.017 163)",
+        "cssVar": "--ok-bg",
+        "tonalRamp": [
+          "oklch(15% 0.008 163)",
+          "oklch(26% 0.011 163)",
+          "oklch(38% 0.013 163)",
+          "oklch(49% 0.015 163)",
+          "oklch(61% 0.015 163)",
+          "oklch(72% 0.013 163)",
+          "oklch(84% 0.011 163)",
+          "oklch(95% 0.008 163)"
+        ]
+      },
+      "warn": {
+        "role": "tertiary",
+        "displayName": "Ochre Ink",
+        "canonical": "#8a5a00",
+        "oklch": "oklch(50.8% 0.108 73)",
+        "cssVar": "--warn",
+        "tonalRamp": [
+          "oklch(15% 0.053 73)",
+          "oklch(26% 0.069 73)",
+          "oklch(38% 0.084 73)",
+          "oklch(49% 0.100 73)",
+          "oklch(61% 0.100 73)",
+          "oklch(72% 0.084 73)",
+          "oklch(84% 0.069 73)",
+          "oklch(95% 0.053 73)"
+        ]
+      },
+      "warn-bg": {
+        "role": "tertiary",
+        "displayName": "Ochre Field",
+        "canonical": "#fbf1d9",
+        "oklch": "oklch(96.0% 0.033 88)",
+        "cssVar": "--warn-bg",
+        "tonalRamp": [
+          "oklch(15% 0.016 88)",
+          "oklch(26% 0.021 88)",
+          "oklch(38% 0.026 88)",
+          "oklch(49% 0.031 88)",
+          "oklch(61% 0.031 88)",
+          "oklch(72% 0.026 88)",
+          "oklch(84% 0.021 88)",
+          "oklch(95% 0.016 88)"
+        ]
+      },
+      "bad": {
+        "role": "tertiary",
+        "displayName": "Correction Red",
+        "canonical": "#b42318",
+        "oklch": "oklch(50.0% 0.182 30)",
+        "cssVar": "--bad",
+        "tonalRamp": [
+          "oklch(15% 0.089 30)",
+          "oklch(26% 0.116 30)",
+          "oklch(38% 0.142 30)",
+          "oklch(49% 0.169 30)",
+          "oklch(61% 0.169 30)",
+          "oklch(72% 0.142 30)",
+          "oklch(84% 0.116 30)",
+          "oklch(95% 0.089 30)"
+        ]
+      },
+      "bad-bg": {
+        "role": "tertiary",
+        "displayName": "Correction Field",
+        "canonical": "#fbe9e7",
+        "oklch": "oklch(94.8% 0.020 25)",
+        "cssVar": "--bad-bg",
+        "tonalRamp": [
+          "oklch(15% 0.010 25)",
+          "oklch(26% 0.013 25)",
+          "oklch(38% 0.016 25)",
+          "oklch(49% 0.018 25)",
+          "oklch(61% 0.018 25)",
+          "oklch(72% 0.016 25)",
+          "oklch(84% 0.013 25)",
+          "oklch(95% 0.010 25)"
+        ]
+      },
+      "primary": {
+        "role": "primary",
+        "displayName": "Deep Ink Button",
+        "canonical": "#1c2b4f",
+        "oklch": "oklch(29.6% 0.069 265)",
+        "cssVar": "--primary",
+        "tonalRamp": [
+          "oklch(15% 0.034 265)",
+          "oklch(26% 0.044 265)",
+          "oklch(38% 0.054 265)",
+          "oklch(49% 0.064 265)",
+          "oklch(61% 0.064 265)",
+          "oklch(72% 0.054 265)",
+          "oklch(84% 0.044 265)",
+          "oklch(95% 0.034 265)"
+        ]
+      },
+      "primary-hover": {
+        "role": "primary",
+        "displayName": "Raised Ink",
+        "canonical": "#263a69",
+        "oklch": "oklch(35.7% 0.086 265)",
+        "cssVar": "--primary-hover",
+        "tonalRamp": [
+          "oklch(15% 0.042 265)",
+          "oklch(26% 0.054 265)",
+          "oklch(38% 0.067 265)",
+          "oklch(49% 0.079 265)",
+          "oklch(61% 0.079 265)",
+          "oklch(72% 0.067 265)",
+          "oklch(84% 0.054 265)",
+          "oklch(95% 0.042 265)"
+        ]
+      },
+      "focus": {
+        "role": "secondary",
+        "displayName": "Focus Blue",
+        "canonical": "#2f63c4",
+        "oklch": "oklch(51.9% 0.162 261)",
+        "cssVar": "--focus",
+        "tonalRamp": [
+          "oklch(15% 0.079 261)",
+          "oklch(26% 0.103 261)",
+          "oklch(38% 0.127 261)",
+          "oklch(49% 0.150 261)",
+          "oklch(61% 0.150 261)",
+          "oklch(72% 0.127 261)",
+          "oklch(84% 0.103 261)",
+          "oklch(95% 0.079 261)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Page heading",
+        "purpose": "One per page, 32px/650."
+      },
+      "headline": {
+        "displayName": "Record head",
+        "purpose": "Candidate name on the record and analysis heads."
+      },
+      "title": {
+        "displayName": "Card head",
+        "purpose": "Card titles above the red rule."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text, 15px/1.5, with measures of 68 to 80ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Form labels, legends and tab names, in sentence case."
+      },
+      "figure": {
+        "displayName": "Figure",
+        "purpose": "Every score, point, count and step number, in tabular mono."
+      },
+      "figure-total": {
+        "displayName": "Overall total",
+        "purpose": "The overall score on the analysis head."
+      },
+      "code": {
+        "displayName": "Code",
+        "purpose": "The code editor on the ink surface and preformatted samples."
+      }
+    },
+    "shadows": [
+      {
+        "name": "card-rest",
+        "value": "0 1px 2px rgb(21 34 63 / .08), 0 12px 28px -12px rgb(21 34 63 / .22)",
+        "purpose": "Every card at rest."
+      },
+      {
+        "name": "toast-lift",
+        "value": "0 8px 24px -6px rgb(21 34 63 / .35)",
+        "purpose": "Floating toasts only."
+      },
+      {
+        "name": "focus-halo",
+        "value": "0 0 0 3px rgb(47 99 196 / .18)",
+        "purpose": "Text inputs on focus, with a Resume Blue border."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "The system ease for every authored transition."
+      },
+      {
+        "name": "pull",
+        "value": "320ms; from translateY(18px), clip-path inset(0 0 40% 0), opacity 0",
+        "purpose": "The one authored moment: the analysis card pulls up from the drawer."
+      },
+      {
+        "name": "settle",
+        "value": "160-180ms opacity fade",
+        "purpose": "Page and tab-panel changes."
+      },
+      {
+        "name": "toast-in",
+        "value": "220ms; from translateY(10px), opacity 0",
+        "purpose": "Toast entry. The exit fades and drops 6px over 160ms."
+      },
+      {
+        "name": "state-color",
+        "value": "120-150ms background/border/color",
+        "purpose": "Hover and selection colour changes."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "all animation and transition durations .01ms",
+        "purpose": "Applied under prefers-reduced-motion: reduce."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "split-stack",
+        "value": "1180px"
+      },
+      {
+        "name": "rail-to-topbar",
+        "value": "900px"
+      },
+      {
+        "name": "compact",
+        "value": "640px"
+      }
+    ],
+    "stateForms": [
+      {
+        "state": "done",
+        "value": "solid var(--ph)"
+      },
+      {
+        "state": "pending",
+        "value": "repeating-linear-gradient(90deg, var(--ph) 0 6px, transparent 6px 10px)"
+      },
+      {
+        "state": "review",
+        "value": "repeating-linear-gradient(135deg, var(--ph) 0 3px, transparent 3px 6px)"
+      },
+      {
+        "state": "flag",
+        "value": "2px var(--ph) centre line over repeating-linear-gradient(135deg, var(--bad) 0 3px, transparent 3px 6px)"
+      }
+    ],
+    "fonts": [
+      {
+        "family": "Libre Franklin",
+        "source": "app/unified/static/fonts/libre-franklin.woff2",
+        "weights": "100 900",
+        "role": "all UI text"
+      },
+      {
+        "family": "JetBrains Mono",
+        "source": "app/unified/static/fonts/jetbrains-mono.woff2",
+        "weights": "100 800",
+        "role": "figures, timers and code only"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Deep ink fill for the one consequential action in a view.",
+      "html": "<button class=\"ds-btn\" type=\"button\">Save ratings</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:40px;padding:8px 16px;border:1px solid var(--primary,#1c2b4f);border-radius:var(--r,4px);background:var(--primary,#1c2b4f);color:#fff;font:600 15px/1.5 var(--sans, 'Libre Franklin', system-ui, sans-serif);cursor:pointer;transition:background-color .15s,border-color .15s,color .15s;}.ds-btn:hover{background:var(--primary-hover,#263a69);border-color:var(--primary-hover,#263a69);}.ds-btn:focus-visible{outline:2px solid var(--focus,#2f63c4);outline-offset:2px;}.ds-btn:active{transform:translateY(1px);}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Card-stock button for routine actions such as the PDF report.",
+      "html": "<button class=\"ds-btn ds-btn-secondary\" type=\"button\"><svg class=\"ds-i\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M20 15v4a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-4\"/><path d=\"m7 10 5 5 5-5M12 15V3\"/></svg>PDF report</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:40px;padding:8px 16px;border:1px solid var(--primary,#1c2b4f);border-radius:var(--r,4px);background:var(--primary,#1c2b4f);color:#fff;font:600 15px/1.5 var(--sans, 'Libre Franklin', system-ui, sans-serif);cursor:pointer;transition:background-color .15s,border-color .15s,color .15s;}.ds-btn:hover{background:var(--primary-hover,#263a69);border-color:var(--primary-hover,#263a69);}.ds-btn:focus-visible{outline:2px solid var(--focus,#2f63c4);outline-offset:2px;}.ds-btn:active{transform:translateY(1px);}.ds-i{width:16px;height:16px;flex:none;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;}.ds-btn-secondary{background:var(--card,#fff);color:var(--ink,#17203a);border-color:var(--line-strong,#b9c0cd);}.ds-btn-secondary:hover{background:var(--card-2,#f6f7f9);border-color:var(--ink-2,#3a4560);}"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Card-stock field with a strong hairline border and a blue focus halo.",
+      "html": "<label class=\"ds-label\">Candidate name<input class=\"ds-input\" placeholder=\"Ananya Sharma\"></label>",
+      "css": ".ds-label{display:block;font:600 13px/1.5 var(--sans, 'Libre Franklin', system-ui, sans-serif);color:var(--ink-2,#3a4560);}.ds-input{display:block;width:100%;margin-top:6px;min-height:40px;padding:8px 11px;background:var(--card,#fff);border:1px solid var(--line-strong,#b9c0cd);border-radius:var(--r,4px);font:400 15px/1.5 var(--sans, 'Libre Franklin', system-ui, sans-serif);color:var(--ink,#17203a);caret-color:var(--resume,#2f63c4);transition:border-color .15s,box-shadow .15s;}.ds-input::placeholder{color:#646d80;}.ds-input:hover{border-color:#98a1b2;}.ds-input:focus{outline:none;border-color:var(--focus,#2f63c4);box-shadow:0 0 0 3px rgb(47 99 196 / .18);}"
+    },
+    {
+      "name": "Rail Steps",
+      "kind": "nav",
+      "refersTo": "rail-step",
+      "description": "Numbered workflow steps on the ink rail; the active step inverts.",
+      "html": "<nav class=\"ds-rail\"><button class=\"ds-step\"><span class=\"ds-no\">1</span>Roles<span class=\"ds-ct\">1</span></button><button class=\"ds-step ds-on\"><span class=\"ds-no\">4</span>Dashboard<span class=\"ds-ct\">3</span></button></nav>",
+      "css": ".ds-rail{display:flex;flex-direction:column;gap:2px;width:248px;padding:16px;background:var(--rail,#15223f);}.ds-step{display:grid;grid-template-columns:26px 1fr auto;align-items:center;gap:8px;width:100%;padding:10px 12px;border:0;border-radius:var(--r,4px);background:transparent;color:var(--rail-muted,#a3afc8);text-align:left;cursor:pointer;font:500 15px/1.5 var(--sans, 'Libre Franklin', system-ui, sans-serif);transition:background-color .15s,color .15s;}.ds-step:hover{background:var(--rail-2,#1d2d52);color:var(--rail-text,#e8ecf4);}.ds-step:focus-visible{outline:2px solid var(--focus,#2f63c4);outline-offset:2px;}.ds-on,.ds-on:hover{background:var(--rail-text,#e8ecf4);color:var(--rail,#15223f);font-weight:650;}.ds-no{display:grid;place-items:center;width:22px;height:22px;border-radius:3px;border:1px solid currentColor;font:12px var(--mono, 'JetBrains Mono', monospace);}.ds-on .ds-no{background:var(--rail,#15223f);color:var(--rail-text,#e8ecf4);border-color:var(--rail,#15223f);}.ds-ct{font:12px var(--mono, 'JetBrains Mono', monospace);opacity:.8;}"
+    },
+    {
+      "name": "Status Tags",
+      "kind": "chip",
+      "refersTo": "tag-ok",
+      "description": "Status text on its own pale field, with 3px corners.",
+      "html": "<span class=\"ds-tag ds-ok\">Ready for assessment</span> <span class=\"ds-tag ds-rev\">Needs confirmation</span>",
+      "css": ".ds-tag{display:inline-block;padding:2px 8px;border-radius:3px;font:600 12.5px/1.5 var(--sans, 'Libre Franklin', system-ui, sans-serif);white-space:nowrap;}.ds-ok{background:var(--ok-bg,#e6f3ec);color:var(--ok,#1d7a4f);}.ds-rev{background:var(--warn-bg,#fbf1d9);color:var(--warn,#8a5a00);}"
+    },
+    {
+      "name": "Record Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "White card stock on the drawer, with a bled header closed by the 1px red rule.",
+      "html": "<section class=\"ds-card\"><header class=\"ds-head\"><h3>Candidate details</h3></header><p>Every candidate is one record.</p></section>",
+      "css": ".ds-card{background:var(--card,#fff);border:1px solid var(--line,#d4d9e2);border-radius:var(--r,4px);box-shadow:0 1px 2px rgb(21 34 63 / .08), 0 12px 28px -12px rgb(21 34 63 / .22);padding:24px;font:400 15px/1.5 var(--sans, 'Libre Franklin', system-ui, sans-serif);color:var(--ink,#17203a);}.ds-head{margin:-24px -24px 24px;padding:16px 24px 12px;border-bottom:1px solid var(--rule,#cf3a2f);}.ds-head h3{margin:0;font-size:17px;font-weight:650;letter-spacing:-.01em;}.ds-card p{margin:0;}"
+    },
+    {
+      "name": "Phase Tab Strip",
+      "kind": "custom",
+      "refersTo": "phase-tab",
+      "description": "Signature index tabs. The phase colour names the phase and the band's line form names the state.",
+      "html": "<div class=\"ds-tabs\" role=\"tablist\"><button role=\"tab\" class=\"ds-tab\" style=\"--ph:#2f63c4;--band:#2f63c4\" aria-selected=\"false\"><span class=\"ds-tn\">Resume</span><span class=\"ds-ts\"><svg class=\"ds-i\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"/></svg><span class=\"ds-f\">100%</span></span></button><button role=\"tab\" class=\"ds-tab\" style=\"--ph:#c99a0c;--band:#c99a0c\" aria-selected=\"true\"><span class=\"ds-tn\">Aptitude</span><span class=\"ds-ts\"><svg class=\"ds-i\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"/></svg><span class=\"ds-f\">83.3%</span></span></button><button role=\"tab\" class=\"ds-tab\" style=\"--ph:#23845a;--band:repeating-linear-gradient(90deg,#23845a 0 6px,transparent 6px 10px)\" aria-selected=\"false\"><span class=\"ds-tn\">Coding</span><span class=\"ds-ts\">Not started</span></button><button role=\"tab\" class=\"ds-tab ds-review\" style=\"--ph:#c3325d;--band:repeating-linear-gradient(135deg,#c3325d 0 3px,transparent 3px 6px)\" aria-selected=\"false\"><span class=\"ds-tn\">Interview</span><span class=\"ds-ts\">Needs rating</span></button></div><div class=\"ds-rc\">Ananya Sharma</div>",
+      "css": ".ds-i{width:16px;height:16px;flex:none;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;}.ds-tabs{display:flex;gap:4px;padding-left:12px;}.ds-tab{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:1px;min-width:128px;padding:13px 14px 9px;margin-top:6px;background:var(--ground-2,#dde1e8);border:1px solid var(--line,#d4d9e2);border-bottom:0;border-radius:6px 6px 0 0;text-align:left;cursor:pointer;color:var(--ink-2,#3a4560);font:400 15px/1.5 var(--sans, 'Libre Franklin', system-ui, sans-serif);transition:background-color .15s,margin .18s cubic-bezier(.16,1,.3,1),padding .18s cubic-bezier(.16,1,.3,1);}.ds-tab::before{content:'';position:absolute;left:10px;right:10px;top:5px;height:4px;border-radius:1px;background:var(--band);}.ds-tab:hover{background:#eef0f4;}.ds-tab:focus-visible{outline:2px solid var(--focus,#2f63c4);outline-offset:2px;}.ds-tab[aria-selected=true]{z-index:1;margin-top:0;padding-top:19px;padding-bottom:10px;margin-bottom:-1px;background:var(--card,#fff);color:var(--ink,#17203a);}.ds-tab[aria-selected=true]::before{top:8px;height:5px;}.ds-tn{font-weight:650;font-size:14px;}.ds-ts{display:flex;align-items:center;gap:4px;font-size:12.5px;color:var(--muted,#5b6579);}.ds-ts .ds-i{width:13px;height:13px;color:var(--ph);stroke-width:2.4;}.ds-review .ds-ts{color:var(--warn,#8a5a00);}.ds-f{font-family:var(--mono, 'JetBrains Mono', monospace);font-variant-numeric:tabular-nums;}.ds-rc{padding:16px 24px;background:var(--card,#fff);border:1px solid var(--line,#d4d9e2);border-radius:0 4px 4px 4px;box-shadow:0 1px 2px rgb(21 34 63 / .08), 0 12px 28px -12px rgb(21 34 63 / .22);font:650 20px/1.4 var(--sans, 'Libre Franklin', system-ui, sans-serif);color:var(--ink,#17203a);}"
+    },
+    {
+      "name": "Progress Bands",
+      "kind": "custom",
+      "refersTo": "phase-tab",
+      "description": "Dashboard row progress: four phase bands, showing done, done, review and pending by line form.",
+      "html": "<span class=\"ds-bands\"><span class=\"ds-band\" style=\"background:#2f63c4\"></span><span class=\"ds-band\" style=\"background:#c99a0c\"></span><span class=\"ds-band\" style=\"background:repeating-linear-gradient(135deg,#23845a 0 3px,transparent 3px 6px)\"></span><span class=\"ds-band\" style=\"background:repeating-linear-gradient(90deg,#c3325d 0 6px,transparent 6px 10px)\"></span></span>",
+      "css": ".ds-bands{display:inline-flex;gap:3px;vertical-align:middle;}.ds-band{width:22px;height:6px;border-radius:1px;}"
+    },
+    {
+      "name": "Commit Row",
+      "kind": "custom",
+      "refersTo": "button-primary",
+      "description": "An irreversible action isolated by a hairline and space, with the primary button at the right and its consequence beside it.",
+      "html": "<div class=\"ds-commit\"><p>Unanswered questions count as incorrect. You cannot change answers after submitting.</p><button class=\"ds-btn\" type=\"button\">Submit aptitude test</button></div>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:40px;padding:8px 16px;border:1px solid var(--primary,#1c2b4f);border-radius:var(--r,4px);background:var(--primary,#1c2b4f);color:#fff;font:600 15px/1.5 var(--sans, 'Libre Franklin', system-ui, sans-serif);cursor:pointer;transition:background-color .15s,border-color .15s,color .15s;}.ds-btn:hover{background:var(--primary-hover,#263a69);border-color:var(--primary-hover,#263a69);}.ds-btn:focus-visible{outline:2px solid var(--focus,#2f63c4);outline-offset:2px;}.ds-btn:active{transform:translateY(1px);}.ds-commit{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;margin-top:32px;padding-top:24px;border-top:1px solid var(--line,#d4d9e2);font:400 13.5px/1.5 var(--sans, 'Libre Franklin', system-ui, sans-serif);color:var(--muted,#5b6579);}.ds-commit p{margin:0;flex:1 1 360px;}.ds-commit .ds-btn{margin-left:auto;}"
+    },
+    {
+      "name": "Toast",
+      "kind": "custom",
+      "refersTo": "toast",
+      "description": "A small ink slip at the bottom right, with a status icon.",
+      "html": "<div class=\"ds-toast\" role=\"status\"><svg class=\"ds-i\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"/></svg><p>Ratings saved.</p></div>",
+      "css": ".ds-i{width:16px;height:16px;flex:none;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;}.ds-toast{display:flex;align-items:flex-start;gap:12px;max-width:400px;padding:12px 12px 12px 14px;background:var(--rail,#15223f);color:var(--rail-text,#e8ecf4);border-radius:var(--r,4px);box-shadow:0 8px 24px -6px rgb(21 34 63 / .35);font:400 14px/1.5 var(--sans, 'Libre Franklin', system-ui, sans-serif);}.ds-toast .ds-i{margin-top:2px;color:#7fd1a5;}.ds-toast p{margin:0;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Index File",
+    "overview": "SmartHire is a recruiter's card drawer. A deep fountain-pen-ink rail holds the workflow on the left. The work area is a cool drawer-grey ground, and on it lie white record cards, each with a single thin red header rule like a printed index card. Every candidate is one record. Each phase of that record is a coloured index tab on the card's top edge, and the colour of the tab stock tells you which phase you are looking at.\n\nThe system is dense but quiet. Hairline rules divide content, corners are nearly square (4px), and depth is one soft neutral drop under each card. Colour has a job or it does not appear. The ink rail and the primary ink button do the structural work, the red rule marks card headers, and the five phase stocks mark phases. State is never carried by hue alone: the form of a tab's band (solid, dashed, hatched, struck) says whether a phase is done, pending, needs review, or flagged. This is the product's honesty principle made visible. Pending and uncertain states get their own first-class form and are never dressed up as results.\n\nLibre Franklin sets all interface text. JetBrains Mono appears only where a value is counted or timed: scores, points, timers, step numbers, list markers, and code. Both fonts are self-hosted, so the app stays fully offline. The look rejects the grey SaaS dashboard with one accent, gradients, glass and glow, which was the previous identity and is explicitly not binding.",
+    "keyCharacteristics": [
+      "Ink rail beside a drawer-grey ground. White record cards with a 1px red header rule.",
+      "Index-stock phase colours: resume blue, identity slate, aptitude canary, coding green, interview cherry.",
+      "State shown by line form, never by hue alone: solid done, dashed pending, hatched needs review, struck flagged.",
+      "The phase tab strip is the signature: assessment stage tabs, dashboard progress bands, and analysis phase tabs.",
+      "Monospace only for figures, timers and code. Tabular numerals everywhere a number is compared.",
+      "Irreversible actions sit in their own row, set apart by a rule and space.",
+      "One authored motion moment: the analysis card pulls up out of the drawer."
+    ],
+    "rules": [
+      {
+        "name": "The Colour Has A Job Rule",
+        "body": "Each phase colour appears only on its own phase: its tab band, its progress fill, and phase-local accents. A phase colour is never used for decoration or on another phase's surface.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Red Line Rule",
+        "body": "The red rule is a 1px header line on card stock. It never becomes a background, a button, or an error signal; errors use Correction Red.",
+        "section": "colors"
+      },
+      {
+        "name": "The Counted-Things-In-Mono Rule",
+        "body": "JetBrains Mono is reserved for values that are counted, timed or compiled. Words, including the word \"Pending\" in a score slot, return to Libre Franklin.",
+        "section": "typography"
+      },
+      {
+        "name": "The Sentence Case Rule",
+        "body": "All labels, tabs, headers and buttons are sentence case. Nothing in the system is set in uppercase tracking.",
+        "section": "typography"
+      },
+      {
+        "name": "The Paper On A Drawer Rule",
+        "body": "Only cards and toasts cast shadows. Everything else is separated by hairlines and tonal steps.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Line Form Rule",
+        "body": "State is carried by the form of the line, and the phase colour only says which phase. A new state needs a new line form, not a new hue.",
+        "section": "components"
+      },
+      {
+        "name": "The Commit Row Rule",
+        "body": "A consequential action never shares a row with routine actions. It sits alone, below a hairline, at the right.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "**Do** put every phase-coloured mark on its own phase, so the tab, band and fill all agree.",
+      "**Do** show state with the band's line form (solid, dashed 6/4, hatched 135 degrees, struck), and pair it with words or a figure on the tab.",
+      "**Do** set every score, point value, timer and count in JetBrains Mono with tabular numerals, and put the words around them in Libre Franklin.",
+      "**Do** head every card with a bled header closed by the 1px red rule.",
+      "**Do** isolate irreversible actions in a commit row: a hairline above, 32px above that, and the primary button at the right.",
+      "**Do** keep corners at 4px (3px for tags, 1px for bands, 6px top-only for index tabs).",
+      "**Do** bundle every font and asset locally. Nothing loads from a CDN.",
+      "**Do** collapse all motion under prefers-reduced-motion."
+    ],
+    "donts": [
+      "**Don't** use gradients, glass, glow, or teal, which were the previous identity and the generic SaaS default this world replaces.",
+      "**Don't** signal a phase's state by changing its hue. The hue belongs to the phase.",
+      "**Don't** use the red rule as a fill, a button colour, or an error colour.",
+      "**Don't** set Aptitude Canary as text. It is a line and fill colour only.",
+      "**Don't** add shadows to anything but cards and toasts, and never use hard offset or coloured shadows.",
+      "**Don't** set labels, tabs or headings in uppercase tracking, and don't add eyebrow or kicker labels above headings.",
+      "**Don't** add a second choreographed motion. The analysis pull-up is the only one."
+    ]
+  }
+}

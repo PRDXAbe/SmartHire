@@ -3,216 +3,255 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SmartHire Local</title>
-  <style>
-    :root{--ink:#18243b;--muted:#637187;--line:#dce4ec;--brand:#126b69;--soft:#e9f5f2;--bg:#f4f7fa;--white:#fff;--warn:#985d14}
-    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,Segoe UI,sans-serif}
-    header{background:#102e37;color:white;padding:22px max(24px,calc((100vw - 1200px)/2));display:flex;align-items:center;justify-content:space-between;gap:18px}
-    header h1{font-size:24px;margin:0;letter-spacing:-.5px}header p{margin:2px 0 0;color:#c3dadd}.badge{border:1px solid #6ba99e;border-radius:20px;padding:5px 12px;color:#c8fff0;font-size:12px;white-space:nowrap}
-    main{max-width:1200px;margin:26px auto;padding:0 20px 60px}nav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
-    nav button{border:1px solid var(--line);background:white;padding:10px 16px;border-radius:10px;color:var(--ink);cursor:pointer;font-weight:600}
-    nav button.active{background:var(--brand);color:white;border-color:var(--brand)}.page{display:none}.page.active{display:block}
-    .hero{display:flex;justify-content:space-between;align-items:end;gap:18px;margin-bottom:18px}.hero h2{font-size:27px;margin:0}.hero p{color:var(--muted);margin:5px 0 0}
-    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.card{background:white;border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 4px 18px #19304709;margin-bottom:18px}
-    .card h3{margin:0 0 14px;font-size:19px}.full{grid-column:1/-1}.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}label{display:block;font-weight:600;font-size:13px;margin-bottom:5px;color:#33465c}
-    input,select,textarea{width:100%;border:1px solid #cbd7e3;border-radius:9px;padding:10px 11px;background:white;color:var(--ink);font:inherit}textarea{min-height:90px;resize:vertical}input[type=checkbox]{width:auto;margin-right:7px}
-    .check{display:flex;align-items:center;font-weight:500;margin:9px 0}.help{font-size:12px;color:var(--muted);margin:5px 0}.button{border:0;background:var(--brand);color:white;border-radius:9px;padding:11px 17px;font:inherit;font-weight:650;cursor:pointer}.button:disabled{opacity:.5;cursor:not-allowed}.button.secondary{background:#e9f0f4;color:#1f3d50}.button.light{background:white;color:var(--brand);border:1px solid #a9cdc6}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
-    .notice{padding:11px 14px;border-radius:10px;background:#fff4df;color:#795014;margin:10px 0}.success{background:#e7f6ed;color:#175f3b}.error{background:#ffebeb;color:#9b2525}.hidden{display:none!important}
-    table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:11px 10px;border-bottom:1px solid var(--line);vertical-align:top}th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}td button{white-space:nowrap}.score{font-weight:800;color:var(--brand);font-size:19px}.pill{display:inline-block;border-radius:20px;padding:3px 9px;background:var(--soft);color:#176661;font-size:12px;font-weight:700}.pill.warn{background:#fff2df;color:#8c580c}
-    .breakdown{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.metric{border:1px solid var(--line);padding:13px;border-radius:10px}.metric strong{float:right;color:var(--brand)}.metric p{margin:7px 0 0;color:var(--muted);font-size:13px}.metric small{display:block;color:#718293;margin-top:6px}
-    .stepbar{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}.stepbar span{padding:7px 11px;border-radius:20px;background:#e9eef3;color:#566a7a;font-size:13px}.stepbar .done{background:#dff3e8;color:#23684c}
-    .difficulty{border:1px solid var(--line);border-radius:12px;padding:13px}.difficulty output{float:right;color:var(--brand);font-weight:750}.difficulty input{padding:0;accent-color:var(--brand)}
-    .card,.metric,.question{animation:rise .35s ease both}@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-    .interviewer{display:flex;align-items:center;gap:18px;padding:18px;background:linear-gradient(120deg,#102e37,#176b69);color:#fff;border-radius:14px;margin:12px 0}.interviewer-orb{width:72px;height:72px;border-radius:50%;flex:none;background:radial-gradient(circle at 35% 30%,#c8fff0,#4bb8a8 50%,#16706e);box-shadow:0 0 0 8px #ffffff18,0 0 28px #67dccc66;animation:breathe 2.5s ease-in-out infinite}.interviewer.speaking .interviewer-orb{animation:breathe .5s ease-in-out infinite}.interviewer p{margin:3px 0;color:#d4efea}@keyframes breathe{50%{transform:scale(1.09);box-shadow:0 0 0 14px #ffffff18,0 0 36px #67dccc99}}
-    @media(prefers-reduced-motion:reduce){.card,.metric,.question,.interviewer-orb{animation:none}html{scroll-behavior:auto}}
-    .question{padding:15px;border:1px solid var(--line);border-radius:10px;margin-bottom:12px}.question h4{margin:0 0 10px}.options label{font-weight:400;font-size:14px;margin:7px 0}.options input{width:auto;margin-right:8px}pre{white-space:pre-wrap;background:#eff3f7;padding:11px;border-radius:8px;overflow:auto}#codeInput{min-height:260px;font:13px/1.45 Consolas,monospace;background:#17243a;color:#e8f5ff;border-color:#17243a}
-    body{background:radial-gradient(circle at 7% 0%,#d7f2f0 0,transparent 30%),radial-gradient(circle at 90% 18%,#eee9ff 0,transparent 28%),#f5f7fb;min-height:100vh}
-    body::before{content:"";position:fixed;inset:-20%;z-index:-1;pointer-events:none;background:radial-gradient(circle at 75% 62%,#b9e8de55,transparent 22%);animation:ambient 14s ease-in-out infinite alternate}
-    header{position:relative;overflow:hidden;background:linear-gradient(115deg,#101f39,#123e4b 64%,#155e58);box-shadow:0 14px 38px #0c34412d}
-    header::after{content:"";position:absolute;width:310px;height:310px;right:13%;top:-210px;border:1px solid #ffffff35;border-radius:50%;box-shadow:0 0 0 38px #ffffff0b,0 0 0 78px #ffffff09;animation:float 9s ease-in-out infinite}
-    header h1{font-size:27px;letter-spacing:-.7px}header .badge{background:#ffffff13;backdrop-filter:blur(6px)}main{max-width:1250px}
-    nav{padding:6px;background:#ffffffaf;border:1px solid #ffffffeb;border-radius:15px;box-shadow:0 9px 30px #2c537019;backdrop-filter:blur(14px);width:max-content;max-width:100%}
-    nav button{border:0;background:transparent;transition:background .2s,transform .2s,box-shadow .2s}nav button:hover{transform:translateY(-2px)}nav button.active{background:linear-gradient(110deg,#107575,#1b9382);box-shadow:0 6px 16px #137b7350}
-    .hero h2{font-size:clamp(26px,3vw,36px);letter-spacing:-.04em}.hero p{font-size:15px}
-    .card{background:#fffffff0;border-color:#e1e8ef;box-shadow:0 12px 38px #203d5c10;backdrop-filter:blur(10px);transition:box-shadow .25s,transform .25s}.card:hover{box-shadow:0 16px 45px #203d5c19}
-    .metric,.difficulty{background:linear-gradient(145deg,#fff,#f6fafb);transition:transform .22s,border-color .22s,box-shadow .22s}.metric:hover,.difficulty:hover{transform:translateY(-3px);border-color:#9dd4ce;box-shadow:0 10px 18px #256e6816}
-    .button{background:linear-gradient(110deg,#0a7774,#229c85);box-shadow:0 5px 14px #137b7330;transition:transform .2s,box-shadow .2s,filter .2s}.button:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 9px 22px #137b7344;filter:saturate(1.1)}.button:active:not(:disabled){transform:translateY(0)}.button.secondary,.button.light{box-shadow:none}
-    input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible{outline:3px solid #53bfb0;outline-offset:2px}input[type=range]{cursor:pointer;height:24px}
-    .page.active{animation:pageIn .36s ease both}.stepbar span{transition:background .3s,color .3s,transform .3s}.stepbar .done{transform:translateY(-2px);box-shadow:0 5px 12px #2c946b1c}
-    .camera-stage{position:relative;width:min(100%,360px);margin:12px 0;overflow:hidden;border-radius:14px;background:#17243a;box-shadow:0 12px 25px #15293c29}.camera-stage video{display:block;width:100%;margin:0!important}.face-box{position:absolute;border:3px solid #62f2ca;border-radius:14px;box-shadow:0 0 0 999px #091e351e,0 0 16px #66f7cc;transition:all .25s;pointer-events:none}.face-box::before,.face-box::after{content:"";position:absolute;left:0;right:0;height:2px;background:#99ffe1;box-shadow:0 0 12px #99ffe1;animation:scan 2s ease-in-out infinite}.face-box::after{animation-delay:1s}
-    .face-score{font-size:13px;font-weight:700;color:#15776a}.preset-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px;margin:12px 0 22px}.preset-card{text-align:left;min-height:86px;border:1px solid #c8dcd9;border-radius:12px;background:#f7fcfb;padding:14px;color:#173e43;cursor:pointer;transition:transform .2s,border-color .2s,box-shadow .2s}.preset-card:hover{transform:translateY(-3px);border-color:#58b6a6;box-shadow:0 8px 22px #197b6b21}.preset-card small{display:block;color:#617a7e;margin-top:5px}
-    .analysis-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}.analysis-head h3{margin:0}.analysis-total{font-size:30px;font-weight:800;color:var(--brand);line-height:1}.phase-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:18px 0}.phase-card{padding:17px;border:1px solid var(--line);border-radius:13px;background:#f8fcfb}.phase-card h4{margin:0 0 8px}.phase-card .raw-score{font-size:23px;font-weight:800;color:#135d62}.phase-card p{font-size:12px;color:var(--muted);min-height:37px}.score-track{height:8px;border-radius:10px;background:#e0eaed;overflow:hidden;margin:11px 0}.score-fill{height:100%;background:linear-gradient(90deg,#107774,#4fc8a3);border-radius:10px;transition:width .5s ease}.contribution{font-size:13px;font-weight:700;color:#176b67}.analysis-summary{padding-left:24px;line-height:1.55}.analysis-summary li{padding:7px 0;border-bottom:1px solid var(--line)}.analysis-summary li:last-child{border:0}.analysis-detail{margin-top:14px;padding:11px 14px;border:1px solid var(--line);border-radius:10px}.analysis-detail summary{cursor:pointer;font-weight:700}.analysis-detail .metric{margin-top:10px}.analysis-selected{background:#e4f5ef!important;color:#12685f!important}
-    .review-rubric{border-left:4px solid #d69c42;background:#fff8e8;padding:12px 16px;border-radius:9px;margin:14px 0}.review-rubric ol{margin:7px 0 0;padding-left:20px}.interview-rating{max-width:380px;margin-top:8px}
-    @keyframes pageIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}@keyframes ambient{to{transform:translate(-5%,4%) scale(1.12)}}@keyframes float{50%{transform:translateY(18px)}}@keyframes scan{0%,100%{top:8%}50%{top:88%}}
-    @media(max-width:900px){.phase-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:780px){.grid,.formgrid,.breakdown,.preset-grid{grid-template-columns:1fr}.hero{display:block}header{padding:18px 20px}table{display:block;overflow-x:auto}nav{width:100%}}@media(max-width:540px){.phase-grid{grid-template-columns:1fr}}
-    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
-  </style>
+  <title>SmartHire</title>
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/static/fonts/libre-franklin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/static/app.css">
 </head>
 <body>
-<header><div><h1>SmartHire <span style="color:#71d7c0">Local</span></h1><p>One workspace for screening, assessment, and interview</p></div><span class="badge">● Runs on this computer</span></header>
-<main>
-  <nav id="nav"><button data-page="jobs" class="active">1 · Job setup</button><button data-page="candidates">2 · Add candidate</button><button data-page="assess">3 · Assess</button><button data-page="dashboard">4 · Dashboard</button></nav>
-  <div id="message" class="hidden"></div>
+<svg width="0" height="0" class="sprite" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5M12 16.5h.01"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M20 15v4a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-4"/><path d="m7 10 5 5 5-5M12 15V3"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M8 16H3v5"/></symbol>
+  <symbol id="i-speaker" viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M18 11a6 6 0 0 1-12 0M12 17v4"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24"><path d="m21 8-5 4 5 4z"/><rect x="3" y="6" width="13" height="12" rx="2"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+</svg>
 
-  <section id="jobs" class="page active">
-    <div class="hero"><div><h2>Set up a role</h2><p>Define the evidence and preferences that matter for this job.</p></div></div>
-    <div class="card"><h3>Start from a role template</h3><p class="help">Choose a template to fill the form. Review its requirements and save when ready.</p><div id="rolePresets" class="preset-grid"></div></div>
-    <form id="jobForm" class="card">
-      <div class="formgrid">
-        <div><label>Job title</label><input name="title" placeholder="Software Engineer" required></div>
-        <div><label>Role category</label><select name="role"><option value="swe">Software engineer</option><option value="backend">Backend</option><option value="ds">Data science</option><option value="ml">Machine learning</option><option value="data_eng">Data engineering</option><option value="general">General</option></select></div>
-        <div><label>Required skills</label><textarea name="required_skills" placeholder="Python, SQL, Git"></textarea></div>
-        <div><label>Preferred skills</label><textarea name="preferred_skills" placeholder="Docker, AWS"></textarea></div>
-        <div><label>Minimum experience in years</label><input name="min_experience" type="number" min="0" step="0.5" value="0"></div>
-        <div><label>Accepted education or equivalents</label><input name="education" placeholder="B.Tech, B.E., Bachelor"></div>
-        <div><label>Relevant certificates</label><input name="certificates" placeholder="AWS Certified Developer, PMP"></div>
-        <div><label>Work arrangement</label><select name="work_mode"><option value="onsite">Onsite</option><option value="hybrid">Hybrid</option><option value="remote">Remote</option></select></div>
-        <div><label>Work location</label><input name="location" placeholder="Bengaluru"></div>
-        <div><label>Required shift</label><select name="shift"><option value="day">Day</option><option value="night">Night</option><option value="rotating">Rotating</option></select></div>
+<div class="shell">
+  <aside class="rail">
+    <div class="brand">
+      <h1><span class="wordmark">SmartHire</span><span class="sr-only"> — </span><span class="tagline">AI Recruitment Platform</span></h1>
+    </div>
+    <nav class="steps" id="nav" aria-label="Workflow">
+      <button data-page="jobs" class="active" aria-current="page"><span class="step-no">1</span><span class="step-name">Roles</span><span class="step-count" id="countJobs"></span></button>
+      <button data-page="candidates"><span class="step-no">2</span><span class="step-name">Add candidate</span></button>
+      <button data-page="assess"><span class="step-no">3</span><span class="step-name">Assessment</span></button>
+      <button data-page="dashboard"><span class="step-no">4</span><span class="step-name">Dashboard</span><span class="step-count" id="countCandidates"></span></button>
+    </nav>
+    <p class="rail-note"><svg class="i"><use href="#i-lock"/></svg><span>Runs entirely on this computer. Resumes, answers and camera frames never leave it.</span></p>
+  </aside>
+
+  <main class="work">
+    <!-- 1 · Roles -->
+    <section id="jobs" class="page active" aria-labelledby="jobsTitle">
+      <header class="page-head">
+        <div><h2 id="jobsTitle">Roles</h2><p>Define the evidence and preferences that matter for this job.</p></div>
+      </header>
+      <div class="split">
+        <form id="jobForm" class="card">
+          <div class="card-head"><h3>New role</h3></div>
+          <div class="templates">
+            <p class="field-label" id="templatesLabel">Start from a template</p>
+            <div id="rolePresets" class="template-row" role="group" aria-labelledby="templatesLabel"></div>
+          </div>
+
+          <fieldset>
+            <legend>The job</legend>
+            <div class="formgrid">
+              <div><label for="f-title">Job title</label><input id="f-title" name="title" placeholder="Software Engineer" required></div>
+              <div><label for="f-role">Role category</label><select id="f-role" name="role"><option value="swe">Software engineer</option><option value="backend">Backend</option><option value="ds">Data science</option><option value="ml">Machine learning</option><option value="data_eng">Data engineering</option><option value="general">General</option></select></div>
+              <div><label for="f-mode">Work arrangement</label><select id="f-mode" name="work_mode"><option value="onsite">Onsite</option><option value="hybrid">Hybrid</option><option value="remote">Remote</option></select></div>
+              <div><label for="f-loc">Work location</label><input id="f-loc" name="location" placeholder="Bengaluru"></div>
+              <div><label for="f-shift">Required shift</label><select id="f-shift" name="shift"><option value="day">Day</option><option value="night">Night</option><option value="rotating">Rotating</option></select></div>
+              <div class="checks">
+                <label class="check"><input name="location_required" type="checkbox">Location is mandatory</label>
+                <label class="check"><input name="shift_required" type="checkbox">Shift is mandatory</label>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Requirements</legend>
+            <div class="formgrid">
+              <div><label for="f-req">Required skills</label><textarea id="f-req" name="required_skills" placeholder="Python, SQL, Git"></textarea></div>
+              <div><label for="f-pref">Preferred skills</label><textarea id="f-pref" name="preferred_skills" placeholder="Docker, AWS"></textarea></div>
+              <div><label for="f-exp">Minimum experience (years)</label><input id="f-exp" name="min_experience" type="number" min="0" step="0.5" value="0"></div>
+              <div><label for="f-edu">Accepted education or equivalents</label><input id="f-edu" name="education" placeholder="B.Tech, B.E., Bachelor"></div>
+              <div class="full"><label for="f-cert">Relevant certificates</label><input id="f-cert" name="certificates" placeholder="AWS Certified Developer, PMP"></div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Resume match weightage</legend>
+            <p class="help">How much each criterion counts toward the resume score. Weights must total 100.</p>
+            <div class="weights" id="weightFields"></div>
+            <p class="weight-total" id="weightTotal" aria-live="polite"></p>
+          </fieldset>
+
+          <fieldset>
+            <legend>Assessment difficulty</legend>
+            <p class="help">Advanced coding uses a weighted shortest-path problem; advanced interviews ask more questions.</p>
+            <div class="difficulty-grid" id="difficultyFields"></div>
+          </fieldset>
+
+          <div class="form-foot"><button class="button" type="submit" id="saveRole">Save role</button></div>
+        </form>
+
+        <aside class="card side">
+          <div class="card-head"><h3>Saved roles</h3></div>
+          <div id="jobList" class="list"></div>
+        </aside>
       </div>
-      <label class="check"><input name="location_required" type="checkbox">This location is mandatory</label>
-      <label class="check"><input name="shift_required" type="checkbox">This shift is mandatory</label>
-      <h3>Phase 1 weightage</h3><p class="help">Weights must total 100. The current defaults prioritize job skills.</p>
-      <div class="formgrid" id="weightFields"></div>
-      <h3>Assessment difficulty</h3><p class="help">Beginner, intermediate, or advanced for each stage. Advanced coding uses a weighted graph challenge; advanced interviews use more questions.</p>
-      <div class="formgrid">
-        <div class="difficulty"><label for="aptitudeDifficulty">Aptitude <output id="aptitudeDifficultyValue">Intermediate</output></label><input id="aptitudeDifficulty" name="difficulty_aptitude" type="range" min="1" max="3" value="2"></div>
-        <div class="difficulty"><label for="codingDifficulty">Coding <output id="codingDifficultyValue">Beginner</output></label><input id="codingDifficulty" name="difficulty_coding" type="range" min="1" max="3" value="1"></div>
-        <div class="difficulty"><label for="interviewDifficulty">Interview <output id="interviewDifficultyValue">Intermediate</output></label><input id="interviewDifficulty" name="difficulty_interview" type="range" min="1" max="3" value="2"></div>
+    </section>
+
+    <!-- 2 · Add candidate -->
+    <section id="candidates" class="page" aria-labelledby="candTitle">
+      <header class="page-head">
+        <div><h2 id="candTitle">Add a candidate</h2><p>Upload a PDF or paste resume text, then confirm what a resume cannot reliably say.</p></div>
+      </header>
+      <div id="noRoleNotice" class="empty hidden">
+        <p><strong>Create a role first.</strong> Candidates are screened against a role's requirements.</p>
+        <button class="button secondary" type="button" data-goto="jobs">Go to roles</button>
       </div>
-      <div class="actions"><button class="button" type="submit">Save role</button></div>
-    </form>
-    <div class="card"><h3>Saved roles</h3><div id="jobList"></div></div>
-  </section>
-
-  <section id="candidates" class="page">
-    <div class="hero"><div><h2>Add a candidate</h2><p>Use a PDF or paste resume text, then confirm details a resume cannot reliably provide.</p></div></div>
-    <div class="card"><h3>Example resumes</h3><p class="help">Fictitious sample candidates for a quick offline walkthrough. Choose one to fill this form, then select a matching role.</p><div id="resumeExamples" class="preset-grid"></div></div>
-    <form id="candidateForm" class="card">
-      <div class="formgrid">
-        <div><label>Role</label><select name="job_id" id="candidateJob" required></select></div>
-        <div><label>Candidate name</label><input name="name" placeholder="Name shown in reports"></div>
-        <div><label>Email</label><input name="email" type="email" placeholder="Optional if on resume"></div>
-        <div><label>PDF resume</label><input name="resume" type="file" accept=".pdf,application/pdf"></div>
-        <div class="full"><label>Or paste resume text</label><textarea name="resume_text" placeholder="Useful for a fully offline quick demo"></textarea></div>
-        <div><label>Current location</label><input name="location" placeholder="Bengaluru"></div>
-        <div><label>Preferred work location</label><input name="preferred_location" placeholder="Bengaluru"></div>
-        <div><label>Education details or equivalent</label><input name="education" placeholder="Optional candidate confirmation"></div>
-        <div><label>Certificates held</label><input name="certificates" placeholder="Optional candidate confirmation"></div>
-        <div><label>Available shifts</label><select name="shifts"><option value="">Needs confirmation</option><option value="day">Day</option><option value="night">Night</option><option value="rotating">Rotating</option><option value="flexible">Flexible</option><option value="day, night">Day and night</option></select></div>
-        <div><label class="check" style="margin-top:27px"><input name="willing_to_relocate" type="checkbox">Willing to relocate</label></div>
+      <div class="split">
+        <form id="candidateForm" class="card">
+          <div class="card-head"><h3>Candidate details</h3></div>
+          <fieldset>
+            <legend>Resume</legend>
+            <div class="formgrid">
+              <div><label for="candidateJob">Role</label><select name="job_id" id="candidateJob" required></select></div>
+              <div><label for="c-name">Candidate name</label><input id="c-name" name="name" placeholder="Name shown in reports"></div>
+              <div><label for="c-email">Email</label><input id="c-email" name="email" type="email" placeholder="Optional if on the resume"></div>
+              <div><label for="c-pdf">PDF resume</label><input id="c-pdf" name="resume" type="file" accept=".pdf,application/pdf"></div>
+              <div class="full"><label for="c-text">Or paste resume text</label><textarea id="c-text" name="resume_text" rows="6" placeholder="Paste the resume here for a fully offline walkthrough"></textarea></div>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Confirm with the candidate</legend>
+            <div class="formgrid">
+              <div><label for="c-loc">Current location</label><input id="c-loc" name="location" placeholder="Bengaluru"></div>
+              <div><label for="c-ploc">Preferred work location</label><input id="c-ploc" name="preferred_location" placeholder="Bengaluru"></div>
+              <div><label for="c-edu">Education or equivalent</label><input id="c-edu" name="education" placeholder="Optional"></div>
+              <div><label for="c-cert">Certificates held</label><input id="c-cert" name="certificates" placeholder="Optional"></div>
+              <div><label for="c-shift">Available shifts</label><select id="c-shift" name="shifts"><option value="">Needs confirmation</option><option value="day">Day</option><option value="night">Night</option><option value="rotating">Rotating</option><option value="flexible">Flexible</option><option value="day, night">Day and night</option></select></div>
+              <div class="checks"><label class="check"><input name="willing_to_relocate" type="checkbox">Willing to relocate</label></div>
+            </div>
+          </fieldset>
+          <div class="form-foot">
+            <p class="help">The PDF is parsed in memory. Extracted text and details are saved in the local SQLite database.</p>
+            <button class="button" type="submit" id="screenBtn">Screen candidate</button>
+          </div>
+        </form>
+        <aside class="card side">
+          <div class="card-head"><h3>Example resumes</h3></div>
+          <p class="help">Fictitious candidates for a quick walkthrough. Load one into the form, then pick a matching role.</p>
+          <div id="resumeExamples" class="list"></div>
+        </aside>
       </div>
-      <p class="help">The PDF is parsed in memory. Extracted text and candidate details are saved in local SQLite for this demo.</p>
-      <div class="actions"><button class="button" type="submit">Screen candidate</button></div>
-    </form>
-  </section>
+    </section>
 
-  <section id="assess" class="page">
-    <div class="hero"><div><h2>Candidate assessment</h2><p>Each phase uses the same candidate record and saves progress locally.</p></div></div>
-    <div class="card"><label>Select candidate</label><select id="assessmentCandidate"></select><div id="stageBar" class="stepbar"></div></div>
-    <div id="assessmentDetail"></div>
-    <div id="facePanel" class="card hidden"><h3>Automatic face comparison</h3><p class="help">With candidate consent, add a reference photo. The local model draws a face box and compares three webcam frames as the candidate moves gently side to side. The score is cosine similarity, not a calibrated probability. Face data stays in memory until the app closes.</p><div class="formgrid"><div><label>Reference photo</label><input id="facePhoto" type="file" accept="image/*"><label class="check"><input id="faceConsent" type="checkbox">Candidate consent confirmed</label><button class="button secondary" id="faceEnroll">Add reference</button><p id="faceScore" class="face-score"></p></div><div><div class="camera-stage"><video id="faceVideo" autoplay muted playsinline class="hidden"></video><div id="faceBox" class="face-box hidden"></div></div><div class="actions"><button class="button secondary" id="faceCamera">Start camera</button><button class="button" id="faceVerify" disabled>Verify identity</button></div></div></div><p id="faceStatus" class="notice">No check completed.</p></div>
-    <div id="aptitudePanel" class="card hidden"><h3>Aptitude test</h3><p class="help">12 questions, 15 minutes. Unanswered questions count as incorrect.</p><div id="aptitudeQuestions"></div><div class="actions"><button class="button" id="aptitudeSubmit">Submit aptitude test</button><span id="aptitudeTimer"></span></div></div>
-    <div id="codingPanel" class="card hidden"><h3 id="problemTitle">Coding challenge</h3><p class="notice">Local demo runner: submit only code you trust. Python execution here is time-limited but is not a secure sandbox.</p><div id="problemDescription"></div><label>Python solution</label><textarea id="codeInput" spellcheck="false"></textarea><div class="actions"><button class="button" id="codingSubmit">Run test cases and submit</button></div></div>
-    <div id="interviewPanel" class="card hidden"><h3>Offline interview</h3><p class="help">Play the question through an installed Windows voice when available. Type your answer or record it for local Whisper transcription. Answers are recorded for a recruiter to rate with a structured rubric; answer length does not earn points.</p><div class="interviewer" id="interviewerAvatar"><div class="interviewer-orb" aria-hidden="true"></div><div><strong>SmartHire interviewer</strong><p id="interviewProgress"></p></div></div><h3 id="interviewQuestion"></h3><div class="actions"><button class="button secondary" id="speakQuestion">Play question aloud</button><button class="button secondary" id="cameraToggle">Turn camera on</button><button class="button secondary" id="recordToggle">Record answer</button><span id="recordStatus" class="help"></span></div><video id="interviewVideo" autoplay muted playsinline class="hidden" style="width:min(100%,360px);border-radius:10px;margin:12px 0;background:#17243a"></video><p class="help">Camera preview stays in this browser. Video is not analyzed or saved.</p><label>Your answer</label><textarea id="interviewAnswer" placeholder="Give a specific example and describe the outcome"></textarea><div class="actions"><button class="button" id="interviewNext">Submit answer</button></div></div>
-  </section>
+    <!-- 3 · Assessment -->
+    <section id="assess" class="page" aria-labelledby="assessTitle">
+      <header class="page-head">
+        <div><h2 id="assessTitle">Assessment</h2><p>Hand the screen to the candidate for each test. Progress saves to the same record.</p></div>
+        <div class="head-control"><label for="assessmentCandidate">Candidate</label><select id="assessmentCandidate"></select></div>
+      </header>
 
-  <section id="dashboard" class="page">
-    <div class="hero"><div><h2>Recruiter dashboard</h2><p>Review scores, missing evidence, and completed assessments.</p></div><button class="button light" id="refreshBtn">Refresh</button></div>
-    <div class="card"><label>Filter by role</label><select id="dashboardJob"></select><div style="overflow-x:auto"><table><thead><tr><th>Candidate</th><th>Role</th><th>Resume</th><th>Aptitude</th><th>Coding</th><th>Interview</th><th>Overall</th><th>Review</th></tr></thead><tbody id="candidateRows"></tbody></table></div></div>
-    <div id="analysisPanel" class="card hidden" aria-live="polite"></div>
-  </section>
-</main>
-<script>
-  const $ = id => document.getElementById(id);
-  const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
-  let state = {jobs:[],candidates:[],weights:{},role_presets:[],resume_examples:[]};
-  let activeCandidate = null, dashboardCandidate = null, aptitudeQuestions = null, aptitudeDeadline = null, aptitudeTimer = null;
-  let cameraStream = null, faceStream = null, facePreviewTimer = null, facePreviewBusy = false, microphoneStream = null, recorder = null, questionAudio = null, audioChunks = [];
-  const labels = {skills:'Skills',experience:'Experience',education:'Education',certificates:'Certificates',location:'Location',shift:'Shift'};
-  function message(text,kind='success'){const box=$('message');box.className='notice '+kind;box.textContent=text;window.scrollTo({top:0,behavior:'smooth'});}
-  function page(name){document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===name));document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('active',x.dataset.page===name));if(name==='assess')renderAssessment();if(name==='dashboard')renderDashboard();}
-  document.querySelectorAll('nav button').forEach(button=>button.onclick=()=>page(button.dataset.page));
-  async function api(url,options={}){const response=await fetch(url,options);let body=await response.json();if(!response.ok)throw Error(body.error||'Request failed');return body;}
-  const jsonPost=(url,data)=>api(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
-  async function refresh(){state=await api('/api/state');renderJobs();renderExamples();renderSelects();renderDashboard();renderAssessment();}
-  function renderJobs(){
-    $('jobList').innerHTML=state.jobs.length?state.jobs.map(j=>`<div class="metric"><b>${esc(j.title)}</b> · ${esc(j.work_mode)} · ${esc(j.location||'any location')} · ${esc(j.shift)} shift<br><small>Required: ${esc(j.required_skills.join(', ')||'none')} · Education: ${esc(j.education.join(', ')||'any')} · Certificates: ${esc(j.certificates.join(', ')||'none')}</small></div>`).join(''):'No roles yet. Create one above.';
-    $('rolePresets').innerHTML=state.role_presets.map((role,i)=>`<button type="button" class="preset-card" data-preset="${i}"><strong>${esc(role.name)}</strong><small>${esc(role.work_mode)} · ${esc(role.shift)} shift</small></button>`).join('');
-    document.querySelectorAll('[data-preset]').forEach(button=>button.onclick=()=>{const role=state.role_presets[Number(button.dataset.preset)],form=$('jobForm');for(const [key,value] of Object.entries(role)){if(key==='name'||key==='difficulty')continue;if(form.elements[key])form.elements[key].value=value}for(const [key,value] of Object.entries(role.difficulty))$(key+'Difficulty').value=value;updateDifficultyLabels();form.scrollIntoView({behavior:'smooth'});message(`${role.name} template loaded. Review and save the role.`)});
-  }
-  function renderExamples(){
-    $('resumeExamples').innerHTML=state.resume_examples.map((sample,i)=>`<div class="preset-card"><strong>${esc(sample.name)}</strong><small>${esc(sample.role_hint)} · ${esc(sample.location)}</small><div class="actions"><button type="button" class="button secondary" data-sample="${i}">Use example</button><a class="button light" href="/api/examples/${encodeURIComponent(sample.id)}.pdf">PDF</a></div></div>`).join('');
-    document.querySelectorAll('[data-sample]').forEach(button=>button.onclick=()=>{const sample=state.resume_examples[Number(button.dataset.sample)],form=$('candidateForm');for(const key of ['name','email','location','preferred_location','education','certificates','shifts','resume_text'])form.elements[key].value=sample[key]||'';form.elements.resume.value='';message(`${sample.name} example loaded. Select a role and screen the candidate.`);form.scrollIntoView({behavior:'smooth'})});
-  }
-  function renderSelects(){
-    const options=state.jobs.map(j=>`<option value="${esc(j.id)}">${esc(j.title)}</option>`).join('');
-    const oldJob=$('candidateJob').value;$('candidateJob').innerHTML=options;if(state.jobs.some(j=>j.id===oldJob))$('candidateJob').value=oldJob;
-    const old=$('assessmentCandidate').value;$('assessmentCandidate').innerHTML='<option value="">Select candidate</option>'+state.candidates.map(c=>`<option value="${esc(c.id)}">${esc(c.name)} — ${esc((state.jobs.find(j=>j.id===c.job_id)||{}).title||'Role')}</option>`).join('');if(state.candidates.some(c=>c.id===old))$('assessmentCandidate').value=old;else if(activeCandidate)$('assessmentCandidate').value=activeCandidate;
-    const filter=$('dashboardJob').value;$('dashboardJob').innerHTML='<option value="">All roles</option>'+options;if(filter)$('dashboardJob').value=filter;
-  }
-  function renderDashboard(){
-    const jobFilter=$('dashboardJob').value;
-    const sorted=state.candidates.filter(c=>!jobFilter||c.job_id===jobFilter).sort((a,b)=>(b.overall.score??b.phase1.score)-(a.overall.score??a.phase1.score));
-    $('candidateRows').innerHTML=sorted.map(c=>{const j=state.jobs.find(x=>x.id===c.job_id)||{};const s=c.stages||{};return `<tr><td><b>${esc(c.name)}</b><br><small>${esc(c.email)}</small><br><button class="button secondary ${dashboardCandidate===c.id?'analysis-selected':''}" data-analyze="${esc(c.id)}">View analysis</button></td><td>${esc(j.title)}</td><td>${c.phase1.score}%</td><td>${s.aptitude?.score??'Pending'}</td><td>${s.coding?.score??'Pending'}</td><td>${s.interview?s.interview.score===null?'Review needed':s.interview.score:'Pending'}</td><td><span class="score">${c.overall.score===null?s.interview?'Pending review':'Pending':c.overall.score+'%'}</span></td><td><span class="pill ${c.phase1.review.length?'warn':''}">${esc(c.phase1.status)}</span></td></tr>`}).join('')||'<tr><td colspan="8">No candidates yet.</td></tr>';
-    document.querySelectorAll('[data-analyze]').forEach(b=>b.onclick=()=>showDashboardAnalysis(b.dataset.analyze,true));
-    if(dashboardCandidate&&sorted.some(c=>c.id===dashboardCandidate))showDashboardAnalysis(dashboardCandidate,false);else $('analysisPanel').classList.add('hidden');
-  }
-  async function showDashboardAnalysis(id,scroll){
-    dashboardCandidate=id;
-    document.querySelectorAll('[data-analyze]').forEach(button=>button.classList.toggle('analysis-selected',button.dataset.analyze===id));
-    const panel=$('analysisPanel');panel.classList.remove('hidden');panel.innerHTML='<h3>Loading candidate analysis…</h3>';
-    try{
-      const analysis=await api(`/api/candidates/${encodeURIComponent(id)}/analysis`);
-      if(dashboardCandidate!==id)return;
-      const candidate=state.candidates.find(c=>c.id===id)||{},job=state.jobs.find(j=>j.id===candidate.job_id)||{};
-      const phases=analysis.phases.map(phase=>`<div class="phase-card"><h4>${esc(phase.label)}</h4><div class="raw-score">${phase.score===null?'Pending':esc(phase.score)+'%'}</div><div class="score-track"><div class="score-fill" style="width:${phase.score===null?0:Math.max(0,Math.min(100,Number(phase.score)))}%"></div></div><div class="contribution">${phase.contribution===null?'Awaiting result':esc(phase.contribution)+' points'} of ${esc(phase.weight)} possible</div><p>${esc(phase.detail)}</p></div>`).join('');
-      const criteria=Object.entries(analysis.resume_criteria).map(([key,item])=>`<div class="metric"><b>${esc(labels[key]||key)}</b><strong>${esc(item.score)}/${esc(item.max)}</strong><p>${esc(item.reason)}</p></div>`).join('');
-      const answers=analysis.interview_answers.map((item,i)=>`<div class="metric"><b>Question ${i+1} · ${item.score===null?'Needs rating':esc(item.score)+'%'}</b><p>${esc(item.question)}</p><small>${esc(item.answer)}</small><label for="rating-${i}">Recruiter rubric rating</label><select id="rating-${i}" class="interview-rating" data-rating="${i}"><option value="">Choose a rating</option>${analysis.interview_rubric.map((label,rating)=>`<option value="${rating}" ${item.rating===rating?'selected':''}>${esc(label)}</option>`).join('')}</select></div>`).join('');
-      const reviewBox=analysis.interview_answers.length?`<div class="review-rubric"><strong>${analysis.interview_review_status==='reviewed'?'Recruiter-rated interview':'Interview score withdrawn until recruiter review'}</strong><p class="help">Rate relevance, correctness, specificity and evidence in each answer. A long answer does not earn points by itself. Earlier length/keyword percentages have been retired.</p><div class="actions"><button class="button" id="saveInterviewRatings">${analysis.interview_review_status==='reviewed'?'Update ratings':'Save ratings and calculate interview score'}</button></div></div>`:'';
-      panel.innerHTML=`<div class="analysis-head"><div><h3>${esc(candidate.name)} · Score analysis</h3><p class="help">${esc(job.title||'Role')} · Each contribution equals phase score × phase weight.</p></div><div><div class="analysis-total">${analysis.overall.score===null?'Pending review':esc(analysis.overall.score)+'%'}</div><a class="button light" href="/api/candidates/${encodeURIComponent(id)}/report.pdf">Download PDF report</a></div></div><div class="phase-grid">${phases}</div><h3>Five-point candidate summary</h3><ol class="analysis-summary">${analysis.summary.map(point=>`<li>${esc(point)}</li>`).join('')}</ol><details class="analysis-detail"><summary>Resume criteria and reasons</summary><div class="breakdown">${criteria}</div></details>${answers?`<details class="analysis-detail" open><summary>Interview answers and rubric</summary>${reviewBox}${answers}</details>`:''}<p class="help">Interview points appear in the overall score only after a recruiter rates each answer with the stated rubric. No automatic answer-quality model is bundled.</p>`;
-      const saveRatings=panel.querySelector('#saveInterviewRatings');if(saveRatings)saveRatings.onclick=async()=>{const selects=[...panel.querySelectorAll('[data-rating]')];if(selects.some(select=>select.value==='')){message('Rate every interview answer from 0 to 4.','error');return}try{saveRatings.disabled=true;await jsonPost(`/api/candidates/${encodeURIComponent(id)}/interview/review`,{ratings:selects.map(select=>Number(select.value))});state=await api('/api/state');renderDashboard();message('Recruiter ratings saved. The overall score has been recalculated.')}catch(error){message(error.message,'error')}finally{saveRatings.disabled=false}};
-      if(scroll)panel.scrollIntoView({behavior:'smooth',block:'start'});
-    }catch(error){if(dashboardCandidate===id)panel.innerHTML=`<div class="notice error">${esc(error.message)}</div>`}
-  }
-  function renderAssessment(){
-    const id=$('assessmentCandidate').value||activeCandidate;
-    const c=state.candidates.find(x=>x.id===id);
-    $('aptitudePanel').classList.add('hidden');$('codingPanel').classList.add('hidden');$('interviewPanel').classList.add('hidden');$('facePanel').classList.add('hidden');
-    if(!c){$('stageBar').innerHTML='';$('assessmentDetail').innerHTML='<div class="card">Select a candidate to continue.</div>';return;}
-    activeCandidate=c.id;
-    $('facePanel').classList.remove('hidden');const check=c.face_check||{};$('faceStatus').textContent=check.status==='match'?'MATCH · camera face and reference passed the local comparison.':check.status==='no_match'?'NO MATCH · camera face differs from the reference.':check.status==='inconclusive'?'INCONCLUSIVE · capture again with visible side-to-side motion.':'No check completed.';$('faceScore').textContent=check.match_score!=null?`Match score: ${check.match_score}% cosine similarity (not identity probability)`:'';if(check.box)drawFaceBox(check.box);
-    const stage=c.stages||{};
-    $('stageBar').innerHTML=['Resume','Aptitude','Coding','Interview'].map((x,i)=>`<span class="${i===0||stage[x.toLowerCase()]?'done':''}">${i+1}. ${x}</span>`).join('');
-    const parts=Object.entries(c.phase1.breakdown).map(([key,v])=>`<div class="metric"><span>${esc(labels[key])}</span><strong>${v.score}/${v.max}</strong><p>${esc(v.reason)}</p>${Object.entries(v.evidence||{}).map(([term,snippet])=>`<small><b>${esc(term)}:</b> ${esc(snippet||'Candidate supplied')}</small>`).join('')}</div>`).join('');
-    const notes=c.phase1.review.length?`<div class="notice">Confirm before a hiring decision: ${esc(c.phase1.review.join('; '))}</div>`:'<div class="notice success">All Phase 1 preferences are recorded. Review source evidence before deciding.</div>';
-    $('assessmentDetail').innerHTML=`<div class="card"><h3>${esc(c.name)} · Resume match <span class="score">${c.phase1.score}%</span></h3>${notes}<div class="breakdown">${parts}</div><div class="actions"><a class="button light" href="/api/candidates/${encodeURIComponent(c.id)}/report.pdf">Download report</a>${!stage.aptitude?'<button class="button" id="startAptitude">Start aptitude</button>':''}${!stage.coding?'<button class="button secondary" id="startCoding">Open coding</button>':''}${!stage.interview?'<button class="button secondary" id="startInterview">Start interview</button>':''}</div></div>`;
-    if($('startAptitude'))$('startAptitude').onclick=startAptitude;if($('startCoding'))$('startCoding').onclick=startCoding;if($('startInterview'))$('startInterview').onclick=startInterview;
-  }
-  $('assessmentCandidate').onchange=()=>{activeCandidate=$('assessmentCandidate').value;renderAssessment()};$('dashboardJob').onchange=renderDashboard;$('refreshBtn').onclick=refresh;
-  $('faceEnroll').onclick=async()=>{if(!activeCandidate)return;const photo=$('facePhoto').files[0];if(!photo||!$('faceConsent').checked){message('Choose a reference photo and confirm candidate consent.','error');return}const form=new FormData();form.append('photo',photo);form.append('consent','true');try{await api(`/api/candidates/${activeCandidate}/face/enroll`,{method:'POST',body:form});$('faceStatus').textContent='Reference ready for this app session. Start the camera and check the candidate.';$('faceVerify').disabled=!faceStream;message('Reference face prepared in memory.')}catch(e){message(e.message,'error')}};
-  function drawFaceBox(box){const overlay=$('faceBox');overlay.style.left=`${box.x*100}%`;overlay.style.top=`${box.y*100}%`;overlay.style.width=`${box.width*100}%`;overlay.style.height=`${box.height*100}%`;overlay.classList.remove('hidden')}
-  async function previewFace(){if(!faceStream||facePreviewBusy||!activeCandidate)return;facePreviewBusy=true;try{const frame=await faceFrame(),form=new FormData();form.append('frame',frame,'preview.jpg');const result=await api(`/api/candidates/${activeCandidate}/face/preview`,{method:'POST',body:form});drawFaceBox(result.box);if(result.match_score!=null)$('faceScore').textContent=`Live match score: ${result.match_score}% cosine similarity (not identity probability)`}catch(e){$('faceBox').classList.add('hidden')}finally{facePreviewBusy=false}}
-  $('faceCamera').onclick=async()=>{try{if(faceStream){clearInterval(facePreviewTimer);faceStream.getTracks().forEach(t=>t.stop());faceStream=null;$('faceVideo').srcObject=null;$('faceVideo').classList.add('hidden');$('faceBox').classList.add('hidden');$('faceCamera').textContent='Start camera';$('faceVerify').disabled=true;return}if(!$('faceConsent').checked){message('Confirm candidate consent and add a reference photo first.','error');return}faceStream=await navigator.mediaDevices.getUserMedia({video:{width:{ideal:640},height:{ideal:480}}});$('faceVideo').srcObject=faceStream;$('faceVideo').classList.remove('hidden');$('faceCamera').textContent='Stop camera';$('faceVerify').disabled=false;facePreviewTimer=setInterval(previewFace,1500)}catch(e){message('Camera unavailable: '+e.message,'error')}};
-  function faceFrame(){return new Promise((resolve,reject)=>{const video=$('faceVideo'),canvas=document.createElement('canvas');if(!video.videoWidth)return reject(Error('Wait for the camera image to appear.'));canvas.width=Math.min(video.videoWidth,640);canvas.height=Math.round(video.videoHeight*canvas.width/video.videoWidth);canvas.getContext('2d').drawImage(video,0,0,canvas.width,canvas.height);canvas.toBlob(blob=>blob?resolve(blob):reject(Error('Could not capture the camera frame.')),'image/jpeg',0.83)})}
-  $('faceVerify').onclick=async()=>{if(!faceStream||!activeCandidate)return;const id=activeCandidate;$('faceVerify').disabled=true;try{const form=new FormData();for(let i=0;i<3;i++){if(i){$('faceStatus').textContent=i===1?'Move gently to one side…':'Move gently to the other side…';await new Promise(resolve=>setTimeout(resolve,1200))}form.append('frames',await faceFrame(),`frame-${i}.jpg`)}$('faceStatus').textContent='Comparing locally…';const result=await api(`/api/candidates/${id}/face/verify`,{method:'POST',body:form});drawFaceBox(result.box);$('faceScore').textContent=`Match score: ${result.match_score}% cosine similarity (not identity probability)`;$('faceStatus').textContent=result.status==='match'?'MATCH · camera face and reference passed the local comparison.':result.status==='no_match'?'NO MATCH · camera face differs from the reference.':'INCONCLUSIVE · capture again with visible motion.';await refresh()}catch(e){$('faceStatus').textContent='INCONCLUSIVE · '+e.message;message(e.message,'error')}finally{$('faceVerify').disabled=!faceStream}};
-  $('jobForm').onsubmit=async event=>{event.preventDefault();const f=new FormData(event.target);let weights={};for(const key of Object.keys(state.weights))weights[key]=Number(f.get('weight_'+key));const data=Object.fromEntries(f.entries());data.weights=weights;data.difficulty={aptitude:Number(f.get('difficulty_aptitude')),coding:Number(f.get('difficulty_coding')),interview:Number(f.get('difficulty_interview'))};data.location_required=f.has('location_required');data.shift_required=f.has('shift_required');try{await jsonPost('/api/jobs',data);message('Role saved. Add a candidate next.');event.target.reset();updateDifficultyLabels();await refresh();page('candidates')}catch(e){message(e.message,'error')}};
-  $('candidateForm').onsubmit=async event=>{event.preventDefault();const data=new FormData(event.target);data.set('willing_to_relocate',data.has('willing_to_relocate')?'true':'false');try{const response=await fetch('/api/candidates',{method:'POST',body:data});const c=await response.json();if(!response.ok)throw Error(c.error||'Could not process resume');activeCandidate=c.id;message('Candidate screened and saved locally.');event.target.reset();await refresh();$('assessmentCandidate').value=c.id;page('assess')}catch(e){message(e.message,'error')}};
-  async function startAptitude(){try{const data=await jsonPost(`/api/candidates/${activeCandidate}/aptitude/start`,{});aptitudeQuestions=data.questions;$('aptitudePanel').querySelector('h3').textContent=`Aptitude test · ${data.difficulty}`;$('aptitudeQuestions').innerHTML=data.questions.map((q,i)=>`<div class="question"><h4>${i+1}. ${esc(q.question)}</h4><div class="options">${q.options.map(option=>`<label><input type="radio" name="q_${esc(q.id)}" value="${esc(option)}">${esc(option)}</label>`).join('')}</div></div>`).join('');$('aptitudePanel').classList.remove('hidden');aptitudeDeadline=Date.now()+data.time_limit_minutes*60000;clearInterval(aptitudeTimer);aptitudeTimer=setInterval(()=>{const left=Math.max(0,Math.ceil((aptitudeDeadline-Date.now())/1000));$('aptitudeTimer').textContent=`${Math.floor(left/60)}:${String(left%60).padStart(2,'0')} remaining`;if(!left){clearInterval(aptitudeTimer);submitAptitude()}},1000);$('aptitudePanel').scrollIntoView({behavior:'smooth'})}catch(e){message(e.message,'error')}}
-  async function submitAptitude(){if(!aptitudeQuestions)return;const answers={};for(const q of aptitudeQuestions){const selected=document.querySelector(`input[name="q_${q.id}"]:checked`);if(selected)answers[q.id]=selected.value}try{const c=await jsonPost(`/api/candidates/${activeCandidate}/aptitude/submit`,{answers});aptitudeQuestions=null;clearInterval(aptitudeTimer);message(`Aptitude submitted: ${c.stages.aptitude.score}%.`);await refresh()}catch(e){message(e.message,'error')}}
-  $('aptitudeSubmit').onclick=submitAptitude;
-  async function startCoding(){try{const p=await api(`/api/candidates/${activeCandidate}/coding/problem`);$('problemTitle').textContent=p.title+' · '+p.difficulty;$('problemDescription').innerHTML=`<p>${esc(p.description).replace(/\n/g,'<br>')}</p><h4>Examples</h4>${p.examples.map(e=>`<pre>Input: ${esc(e.input)}\nOutput: ${esc(e.output)}</pre>`).join('')}`;$('codeInput').value=p.starter_code_python;$('codingPanel').classList.remove('hidden');$('codingPanel').scrollIntoView({behavior:'smooth'})}catch(e){message(e.message,'error')}}
-  $('codingSubmit').onclick=async()=>{if(!confirm('Run this Python code locally? Only submit code you trust.'))return;try{$('codingSubmit').disabled=true;const c=await jsonPost(`/api/candidates/${activeCandidate}/coding/submit`,{source_code:$('codeInput').value});message(`Coding submitted: ${c.stages.coding.passed}/${c.stages.coding.total} test cases passed.`);await refresh()}catch(e){message(e.message,'error')}finally{$('codingSubmit').disabled=false}};
-  async function startInterview(){try{const data=await jsonPost(`/api/candidates/${activeCandidate}/interview/start`,{});showInterviewQuestion(data);$('interviewPanel').classList.remove('hidden');$('interviewPanel').scrollIntoView({behavior:'smooth'})}catch(e){message(e.message,'error')}}
-  function stopQuestionAudio(){if(questionAudio){questionAudio.pause();URL.revokeObjectURL(questionAudio.src);questionAudio=null}$('interviewerAvatar').classList.remove('speaking')}
-  function showInterviewQuestion(data){stopQuestionAudio();$('interviewProgress').textContent=`Question ${data.position} of ${data.total}`;$('interviewQuestion').textContent=data.question;$('interviewAnswer').value=''}
-  $('speakQuestion').onclick=async()=>{if(!activeCandidate)return;try{stopQuestionAudio();const response=await fetch(`/api/candidates/${activeCandidate}/interview/question.wav`);if(!response.ok){const body=await response.json();throw Error(body.error||'Speech unavailable')}const url=URL.createObjectURL(await response.blob());questionAudio=new Audio(url);questionAudio.onended=stopQuestionAudio;$('interviewerAvatar').classList.add('speaking');await questionAudio.play()}catch(e){stopQuestionAudio();message(e.message,'error')}};
-  $('cameraToggle').onclick=async()=>{try{if(cameraStream){cameraStream.getTracks().forEach(t=>t.stop());cameraStream=null;$('interviewVideo').srcObject=null;$('interviewVideo').classList.add('hidden');$('cameraToggle').textContent='Turn camera on'}else{cameraStream=await navigator.mediaDevices.getUserMedia({video:true});$('interviewVideo').srcObject=cameraStream;$('interviewVideo').classList.remove('hidden');$('cameraToggle').textContent='Turn camera off'}}catch(e){message('Camera unavailable: '+e.message,'error')}};
-  $('recordToggle').onclick=async()=>{try{if(recorder&&recorder.state==='recording'){recorder.stop();$('recordToggle').disabled=true;$('recordStatus').textContent='Transcribing locally…';return}microphoneStream=await navigator.mediaDevices.getUserMedia({audio:true});audioChunks=[];recorder=new MediaRecorder(microphoneStream);recorder.ondataavailable=e=>{if(e.data.size)audioChunks.push(e.data)};recorder.onstop=async()=>{microphoneStream.getTracks().forEach(t=>t.stop());try{const form=new FormData();form.append('audio',new Blob(audioChunks,{type:recorder.mimeType||'audio/webm'}),'answer.webm');const response=await fetch('/api/transcribe',{method:'POST',body:form});const result=await response.json();if(!response.ok)throw Error(result.error||'Transcription failed');$('interviewAnswer').value=[$('interviewAnswer').value,result.text].filter(Boolean).join(' ').trim();$('recordStatus').textContent=result.text?'Transcript added. Please review it.':'No speech detected; type your answer.'}catch(e){message(e.message,'error');$('recordStatus').textContent=''}finally{$('recordToggle').disabled=false;$('recordToggle').textContent='Record answer'}};recorder.start();$('recordToggle').textContent='Stop recording';$('recordStatus').textContent='Recording…'}catch(e){message('Microphone unavailable: '+e.message,'error')}};
-  $('interviewNext').onclick=async()=>{if(recorder&&recorder.state==='recording'){message('Stop recording and review the transcript before submitting.','error');return}try{const result=await jsonPost(`/api/candidates/${activeCandidate}/interview/answer`,{answer:$('interviewAnswer').value});if(result.done){stopQuestionAudio();if(cameraStream){cameraStream.getTracks().forEach(t=>t.stop());cameraStream=null;$('interviewVideo').srcObject=null}message('Interview answers recorded. Open View analysis in the dashboard to rate them with the rubric.');await refresh()}else showInterviewQuestion(result)}catch(e){message(e.message,'error')}};
-  function updateDifficultyLabels(){for(const key of ['aptitude','coding','interview'])$(key+'DifficultyValue').textContent=['Beginner','Intermediate','Advanced'][Number($(key+'Difficulty').value)-1]}
-  document.querySelectorAll('input[type=range]').forEach(input=>input.addEventListener('input',updateDifficultyLabels));
-  async function boot(){try{await refresh();$('weightFields').innerHTML=Object.entries(state.weights).map(([key,value])=>`<div><label>${esc(labels[key])} (%)</label><input type="number" name="weight_${esc(key)}" min="0" max="100" step="1" value="${value}" required></div>`).join('');updateDifficultyLabels()}catch(e){message('Could not start local app: '+e.message,'error')}}boot();
-</script>
+      <div id="assessEmpty" class="empty"></div>
+
+      <article id="record" class="record hidden">
+        <div class="tabs" role="tablist" id="stageTabs" aria-label="Assessment stages"></div>
+        <div class="card record-card">
+          <header class="record-head" id="recordHead"></header>
+
+          <div id="panel-resume" class="tabpanel" role="tabpanel" aria-labelledby="tab-resume">
+            <div id="assessmentDetail"></div>
+          </div>
+
+          <div id="panel-identity" class="tabpanel" role="tabpanel" aria-labelledby="tab-identity" hidden>
+            <div id="facePanel">
+              <p class="help measure">With the candidate's consent, add a reference photo. The local model draws a face box and compares three webcam frames while the candidate turns gently side to side. The score is cosine similarity, not a calibrated probability. Face data stays in memory until the app closes, and this check is separate from the hiring score.</p>
+              <div class="identity">
+                <div class="identity-steps">
+                  <div><label for="facePhoto">Reference photo</label><input id="facePhoto" type="file" accept="image/*"></div>
+                  <label class="check"><input id="faceConsent" type="checkbox">Candidate consent confirmed</label>
+                  <div class="actions"><button class="button secondary" id="faceEnroll" type="button">Add reference</button></div>
+                  <div class="actions"><button class="button secondary" id="faceCamera" type="button"><svg class="i"><use href="#i-camera"/></svg><span>Start camera</span></button><button class="button" id="faceVerify" type="button" disabled>Verify identity</button></div>
+                  <p id="faceStatus" class="status" data-state="pending">No check completed.</p>
+                  <p id="faceScore" class="figure-note"></p>
+                </div>
+                <div class="camera-stage"><video id="faceVideo" autoplay muted playsinline class="hidden"></video><div id="faceBox" class="face-box hidden"></div><p class="camera-idle">Camera off</p></div>
+              </div>
+            </div>
+          </div>
+
+          <div id="panel-aptitude" class="tabpanel" role="tabpanel" aria-labelledby="tab-aptitude" hidden>
+            <div id="aptitudeIntro"></div>
+            <div id="aptitudeLive" class="hidden">
+              <div class="test-bar"><h3 id="aptitudeTitle">Aptitude test</h3><span id="aptitudeTimer" class="timer" role="timer" aria-live="off"></span></div>
+              <div id="aptitudeQuestions"></div>
+              <div class="commit"><p class="help">Unanswered questions count as incorrect. You cannot change answers after submitting.</p><button class="button" id="aptitudeSubmit" type="button">Submit aptitude test</button></div>
+            </div>
+          </div>
+
+          <div id="panel-coding" class="tabpanel" role="tabpanel" aria-labelledby="tab-coding" hidden>
+            <div id="codingIntro"></div>
+            <div id="codingLive" class="hidden">
+              <h3 id="problemTitle">Coding challenge</h3>
+              <div id="problemDescription" class="problem"></div>
+              <label for="codeInput">Python solution</label>
+              <textarea id="codeInput" spellcheck="false" autocapitalize="off" autocomplete="off"></textarea>
+              <div class="commit">
+                <p class="notice warn"><svg class="i"><use href="#i-alert"/></svg><span>Local demo runner: the code runs on this computer with a time limit, but it is not a secure sandbox. Submit only code you trust.</span></p>
+                <button class="button" id="codingSubmit" type="button">Run test cases and submit</button>
+              </div>
+            </div>
+          </div>
+
+          <div id="panel-interview" class="tabpanel" role="tabpanel" aria-labelledby="tab-interview" hidden>
+            <div id="interviewIntro"></div>
+            <div id="interviewLive" class="hidden">
+              <div class="interviewer" id="interviewerAvatar">
+                <div class="voice" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+                <div><strong>SmartHire interviewer</strong><p id="interviewProgress"></p></div>
+              </div>
+              <p class="question-text" id="interviewQuestion"></p>
+              <div class="actions">
+                <button class="button secondary" id="speakQuestion" type="button"><svg class="i"><use href="#i-speaker"/></svg><span>Play question aloud</span></button>
+                <button class="button secondary" id="cameraToggle" type="button"><svg class="i"><use href="#i-camera"/></svg><span>Turn camera on</span></button>
+                <button class="button secondary" id="recordToggle" type="button"><svg class="i"><use href="#i-mic"/></svg><span>Record answer</span></button>
+                <span id="recordStatus" class="record-status" aria-live="polite"></span>
+              </div>
+              <video id="interviewVideo" autoplay muted playsinline class="hidden preview"></video>
+              <p class="help">The camera preview stays in this browser. Video is not analysed or saved.</p>
+              <label for="interviewAnswer">Your answer</label>
+              <textarea id="interviewAnswer" rows="6" placeholder="Give a specific example and describe the outcome"></textarea>
+              <div class="commit"><button class="button" id="interviewNext" type="button">Submit answer</button></div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- 4 · Dashboard -->
+    <section id="dashboard" class="page" aria-labelledby="dashTitle">
+      <header class="page-head">
+        <div><h2 id="dashTitle">Recruiter dashboard</h2><p>Scores, missing evidence and completed assessments for every candidate.</p></div>
+        <div class="head-control row">
+          <div><label for="dashboardJob">Role</label><select id="dashboardJob"></select></div>
+          <button class="button secondary icon-only" id="refreshBtn" type="button" aria-label="Refresh" title="Refresh"><svg class="i"><use href="#i-refresh"/></svg></button>
+        </div>
+      </header>
+      <div class="card flush">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th scope="col">Candidate</th><th scope="col">Role</th><th scope="col">Progress</th><th scope="col" class="num">Resume</th><th scope="col" class="num">Aptitude</th><th scope="col" class="num">Coding</th><th scope="col" class="num">Interview</th><th scope="col" class="num">Overall</th><th scope="col">Review</th></tr></thead>
+            <tbody id="candidateRows"></tbody>
+          </table>
+        </div>
+      </div>
+      <div id="analysisPanel" class="analysis hidden" aria-live="polite"></div>
+    </section>
+  </main>
+</div>
+
+<div class="toasts" id="toasts" aria-live="polite"></div>
+<script src="/static/app.js"></script>
 </body>
 </html>
