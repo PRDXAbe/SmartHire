@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python *)",
+      "Bash(.venv\\scripts\\pip *)",
+      "Bash(.venv\\scripts\\python *)",
+      "Bash(rmdir *)",
+      "Bash(del *)",
+      "Bash(do *)",
+      "Bash(findstr *)",
+      "Bash(dir *)",
+      "Bash(ren *)"
+    ]
+  },
+  "$version": 3
+}
